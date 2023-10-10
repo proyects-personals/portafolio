@@ -16,4 +16,8 @@ export class PortafolioComponent implements OnInit {
     this._translate.addLangs(['es','en']);
     this._translate.setDefaultLang('es');
   }
+
+  cambiarIdioma(idioma: string) {
+    this._translate.use(idioma); // Cambiar el idioma
+  }
 }

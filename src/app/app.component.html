@@ -1,1 +1,13 @@
-  <router-outlet></router-outlet>
+  <!-- <router-outlet></router-outlet> -->
+  <body [ngClass]="{ 'dark': isDarkEnable, 'light': !isDarkEnable  }">
+    <header>
+    
+        <a *ngIf="isDarkEnable" (click)="changeTheme()" mode-button style="font-size:30px">LIGHT</a>
+        <a *ngIf="!isDarkEnable" (click)="changeTheme()" mode-button style="font-size:30px">DARK</a>
+      
+    </header>
+    <div class='bg-primary'>...PUTAAAAA</div>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </body>

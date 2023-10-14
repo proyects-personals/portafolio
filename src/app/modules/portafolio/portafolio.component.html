@@ -1,3 +1,11 @@
+
+<div class="navbar px-5 shadow-md bg-primary text-white flex justify-between items-center">
+  <h2 class="text-lg font-semibold">Contactame</h2>
+  <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)" class="p-2 bg-primary text-white">
+    <option value="light">Tema Light</option>
+    <option value="dark">Tema Dark</option>
+  </select>
+</div>
 <p>portafolio works!</p>
 <button (click)="cambiarIdioma('en')">Cambiar a inglés</button>
 <button (click)="cambiarIdioma('es')">Cambiar a español</button>

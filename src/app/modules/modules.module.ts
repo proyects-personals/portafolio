@@ -16,18 +16,18 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [PortafolioComponent],
   imports: [
     CommonModule,
-      BrowserModule,
-      HttpClientModule,
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient],
-        },
-      }),
-      ModulesRoutingModule,
-      FormsModule,
-      ReactiveFormsModule,
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ModulesRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ]
 })
 export class ModulesModule { }

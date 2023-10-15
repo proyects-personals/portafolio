@@ -1,4 +1,7 @@
 {
-    "greeting": "¡Hola, mundo!",
-    "welcome": "Bienvenido a mi aplicación."
-  }
+  "contact":"Contactame",
+  "software":"Desarrollador de Software",
+  "skill":"Habilidades de Programación",
+  "greeting": "¡Hola, mundo!",
+  "welcome": "Bienvenido a mi aplicación."
+}

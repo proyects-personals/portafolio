@@ -1,13 +1,86 @@
-
 <div class="navbar px-5 shadow-md bg-primary text-white flex justify-between items-center">
-  <h2 class="text-lg font-semibold">Contactame</h2>
-  <select [(ngModel)]="selectedTheme" (change)="changeTheme(selectedTheme)" class="p-2 bg-primary text-white">
-    <option value="light">Tema Light</option>
-    <option value="dark">Tema Dark</option>
-  </select>
+  <div class="flex items-center">
+    <i class="fa-solid fa-envelope mr-2"></i> <!-- Utilizamos la clase "mr-2" para agregar un margen a la derecha -->
+    <h2 class="text-lg font-semibold">{{ 'contact' | translate }}</h2>
+  </div>
+  
+  <div class="flex items-center">
+    <a href="tu-enlace-a-LinkedIn">
+      <i class="fa-brands fa-linkedin mx-2"></i> <!-- Utilizamos la clase "mx-2" para agregar un margen horizontal -->
+    </a>
+    <a href="tu-enlace-a-Instagram">
+      <i class="fa-brands fa-instagram mx-2"></i>
+    </a>
+    <a href="tu-enlace-a-Discord">
+      <i class="fa-brands fa-discord mx-2"></i>
+    </a>
+    <a href="tu-enlace-a-GitHub">
+      <i class="fa-brands fa-github mx-2"></i>
+    </a>
+  </div>
+  <div class="flex justify-items-end">
+    <div class="flex justify-items-end">
+      <button (click)="toggleTheme()">
+        <i class="pt-1" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+      </button>
+    </div>
+    <div class="relative z-10">
+      <button (click)="toggleLanguageDropdown()">
+        <i class="pt-1 fa-solid fa-language cursor-pointer mx-2"></i>
+      </button>
+      <ul *ngIf="languageDropdownOpen" class="absolute right-0 mt-[-5px] p-2 bg-white shadow-md rounded">
+        <li class="text-dark" (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+        <li class="text-dark" (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
+      </ul>
+    </div>
+        
+  </div>
 </div>
-<p>portafolio works!</p>
-<button (click)="cambiarIdioma('en')">Cambiar a inglés</button>
-<button (click)="cambiarIdioma('es')">Cambiar a español</button>
 
-<h1>{{ 'greeting' | translate }}</h1>
+<div class="bg-primary grid grid-cols-3 pt-2 p-1 ">
+  <div class="col-span-1 m-8 transition-transform rounded-md transform hover:-translate-y-1 hover:scale-105">
+    <img class="mx-auto w-auto h-80 border" src="../../../assets/img/steveen.jpeg" alt="steveen">
+  </div>
+
+  <!-- <div class="col-span-1 bg-dark text-white p-4 rounded-md shadow-md m-8 transition-transform transform hover:-translate-y-1 hover:scale-105">
+    <img class="mx-auto w-auto h-80" src="../../../assets/img/steveen.jpeg" alt="steveen">
+  </div> -->
+
+
+  <div class="col-span-1 bg-dark border text-white p-4 rounded-md shadow-md m-8 transition-transform transform hover:-translate-y-1 hover:scale-105">
+    <h1 class="text-4xl font-bold text-center mb-4">
+      {{ 'software' | translate }}
+    </h1>
+    <h4 class="text-center">
+      Soy Steveen Ordoñez, Tecnólogo en desarrollo de software con experiencia en desarrollo web tanto en el backend como el frontend.
+    </h4>
+  </div>
+  
+  <div class="col-span-1 bg-dark border text-white p-4 rounded-md shadow-md m-8 transition-transform transform hover:-translate-y-1 hover:scale-105">
+    <h1 class="text-4xl font-bold text-center mb-4">
+      {{ 'skill' | translate }}
+    </h1>
+    <dl class="">
+      <dt class="font-bold">Base de Datos:</dt>
+      <dd>Postgres, MongoDB, MySQL</dd>
+      
+      <dt class="font-bold">Lenguajes de Programación:</dt>
+      <dd>Java, PHP, JavaScript, TypeScript, Dart, Python</dd>
+      
+      <dt class="font-bold">Frameworks:</dt>
+      <dd>Angular, Laravel, Django, Spring Boot, Tailwind, Bootstrap, React, NestJS</dd>
+      
+      <dt class="font-bold">Arquitecturas:</dt>
+      <dd>Monolíticos, Microservicios</dd>
+    </dl>
+  </div>
+  
+  
+  
+</div>
+
+
+
+
+<h1 >{{ 'greeting' | translate }}</h1>
+

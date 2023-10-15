@@ -8,13 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./portafolio.component.css']
 })
 export class PortafolioComponent implements OnInit {
-  isDarkMode: boolean = false;
-  selectedTheme: string = 'light'; // Opción predeterminada del select
+
+  isDarkMode: boolean  = false;
+  sunMoonIcon: string = 'fa-solid fa-moon';
+  selectedTheme: string = '';
+  languageDropdownOpen: boolean = false;
 
   constructor(
     public _translate: TranslateService,
     private el: ElementRef,
-    private renderer:Renderer2,
+    private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document
   ) {
     this.addLangs();
@@ -22,15 +25,9 @@ export class PortafolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Agregar un retraso de 1 segundo (1000 milisegundos)
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme) {
-      this.setTheme(savedTheme);
-    }
-    setTimeout(() => {
-      // Código a ejecutar después de 1 segundo
-    }, 1000);
+    // Obtener el tema almacenado en localStorage o usar 'light' por defecto
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    this.changeTheme(savedTheme);
   }
 
   cambiarIdioma(idioma: string) {
@@ -45,11 +42,19 @@ export class PortafolioComponent implements OnInit {
     this._translate.setDefaultLang('es');
   }
 
+   toggleLanguageDropdown() {
+    this.languageDropdownOpen = !this.languageDropdownOpen;
+  }
+
+  changeLanguage(language: string) {
+    this._translate.use(language);
+    this.languageDropdownOpen = false; // Cierra el menú desplegable después de seleccionar un idioma
+  }
+
   changeTheme(theme: string) {
-    // Cambia el valor de isDarkMode y selectedTheme
+    // Cambia el valor de isDarkMode, selectedTheme y aplica el tema
     this.isDarkMode = theme === 'dark';
     this.selectedTheme = theme;
-    // Llama a setTheme para aplicar el tema correspondiente
     this.setTheme(theme);
   }
 
@@ -65,5 +70,12 @@ export class PortafolioComponent implements OnInit {
     } else {
       this.renderer.removeClass(this.document.body, 'dark-theme');
     }
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode; // Cambia el modo entre oscuro y claro
+    this.changeTheme(this.isDarkMode ? 'dark' : 'light'); // Cambia el tema
+    // Cambia el ícono del sol y la luna según el modo
+    this.sunMoonIcon = this.isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
   }
 }

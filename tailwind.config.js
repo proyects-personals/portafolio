@@ -7,12 +7,16 @@ const { createThemes } = require('tw-colors');
       plugins: [
          createThemes({
             light: { 
-               'primary': '#D2D2D2',
+               'dark':'#D2D2D2',
+               'white':'#0a0a0a',
+               'primary': '#F0F0F0',
                'secondary': 'darkblue',
                'brand': '#F3F3F3',
             },
            dark: { 
-              'primary': '#6C6768',
+              'dark':'#000000',
+              'white':'#ffffff',
+              'primary': '#050b14',
               'secondary': 'tomato',
               'brand': '#4A4A4A',
            },

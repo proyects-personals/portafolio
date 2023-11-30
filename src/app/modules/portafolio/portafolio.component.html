@@ -1,86 +1,199 @@
-<div class="navbar px-5 shadow-md bg-primary text-white flex justify-between items-center">
-  <div class="flex items-center">
-    <i class="fa-solid fa-envelope mr-2"></i> <!-- Utilizamos la clase "mr-2" para agregar un margen a la derecha -->
-    <h2 class="text-lg font-semibold">{{ 'contact' | translate }}</h2>
-  </div>
+<div class="max-w-auto bg-dark mx-h-full">
+
+  <div class="h-20 bg-primary grid grid-cols-3 gap-3">
+
+    <div class="items-center flex items-center justify-start ml-5">
+      <h1 class="text-lg font-semibold text-white">{{ 'contact' | translate }}</h1>
+    </div>
+    <div class="flex items-center justify-center">
+      <a href="tu-enlace-a-LinkedIn">
+        <i class="fa-brands fa-linkedin mx-2 text-white"></i>
+      </a>
+      <a href="tu-enlace-a-Instagram">
+        <i class="fa-brands fa-instagram mx-2 text-white"></i>
+      </a>
+      <a href="tu-enlace-a-Discord">
+        <i class="fa-brands fa-discord mx-2 text-white"></i>
+      </a>
+      <a href="tu-enlace-a-GitHub">
+        <i class="fa-brands fa-github mx-2 text-white"></i>
+      </a>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <div class="flex items-center justify-end">
+        <button (click)="toggleTheme()">
+          <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+        </button>
+      </div>
   
-  <div class="flex items-center">
-    <a href="tu-enlace-a-LinkedIn">
-      <i class="fa-brands fa-linkedin mx-2"></i> <!-- Utilizamos la clase "mx-2" para agregar un margen horizontal -->
-    </a>
-    <a href="tu-enlace-a-Instagram">
-      <i class="fa-brands fa-instagram mx-2"></i>
-    </a>
-    <a href="tu-enlace-a-Discord">
-      <i class="fa-brands fa-discord mx-2"></i>
-    </a>
-    <a href="tu-enlace-a-GitHub">
-      <i class="fa-brands fa-github mx-2"></i>
-    </a>
-  </div>
-  <div class="flex justify-items-end">
+      <div class="flex items-center">
+        <button (click)="toggleLanguageDropdown()">
+          <i class="fa-solid fa-language cursor-pointer text-white"></i>
+        </button>
+        <ul *ngIf="languageDropdownOpen" class="absolute h-12 text-center w-16 mt-20 bg-dark shadow-md rounded">
+          <li class="cursor-pointer hover:bg-secondary text-white"
+            (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+          <li class="cursor-pointer hover:bg-secondary text-white"
+            (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="flex items-center">
+      <i class="fa-solid fa-envelope mr-2"></i> 
+      <h2 class="text-lg font-semibold">{{ 'contact' | translate }}</h2>
+    </div>
+    
+    <div class="flex items-center">
+      <a href="tu-enlace-a-LinkedIn">
+        <i class="fa-brands fa-linkedin mx-2"></i> 
+      </a>
+      <a href="tu-enlace-a-Instagram">
+        <i class="fa-brands fa-instagram mx-2"></i>
+      </a>
+      <a href="tu-enlace-a-Discord">
+        <i class="fa-brands fa-discord mx-2"></i>
+      </a>
+      <a href="tu-enlace-a-GitHub">
+        <i class="fa-brands fa-github mx-2"></i>
+      </a>
+    </div>
+  
+  
     <div class="flex justify-items-end">
-      <button (click)="toggleTheme()">
-        <i class="pt-1" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
-      </button>
+      <div class="flex justify-items-end">
+        <button (click)="toggleTheme()">
+          <i class="pt-1" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+        </button>
+      </div>
+      <div class="relative z-10">
+        <button (click)="toggleLanguageDropdown()">
+          <i class="pt-1 fa-solid fa-language cursor-pointer mx-2"></i>
+        </button>
+        <ul *ngIf="languageDropdownOpen" class="absolute right-0 mt-[-5px] p-2 bg-white shadow-md rounded">
+          <li class="text-dark" (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+          <li class="text-dark" (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
+        </ul>
+      </div>
+          
+    </div> -->
+  </div>
+  
+  <!-- hasta aqui esta el nav -->
+  
+  <div class="grid grid-cols-1 gap-1 md:grid-cols-3 mt-10 ml-5 mr-5">
+  
+    <div class="flex items-center justify-center h-96 rounded-lg">
+      <img class="mx-auto w-auto h-full w-full rounded-lg" src="../../../assets/img/steveen.jpeg" alt="steveen">
     </div>
-    <div class="relative z-10">
-      <button (click)="toggleLanguageDropdown()">
-        <i class="pt-1 fa-solid fa-language cursor-pointer mx-2"></i>
-      </button>
-      <ul *ngIf="languageDropdownOpen" class="absolute right-0 mt-[-5px] p-2 bg-white shadow-md rounded">
-        <li class="text-dark" (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
-        <li class="text-dark" (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
-      </ul>
+    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-primary">
+      <div class="flex items-center justify-center">
+        <h1 class="text-4xl font-bold text-white text-center h-20 mt-5 sm:mt-5 md:mt-10">
+          {{ 'software' | translate }}
+        </h1>
+      </div>
+      <div class="mt-5 sm:mt-8 md:mt-10">
+        <h4 class="text-letf ml-5 text-white">
+          {{ 'presentation' | translate }}
+        </h4>
+      </div>
     </div>
-        
+    
+  
+    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-primary">
+      <div class="flex items-center justify-center">
+        <h1 class="text-4xl font-bold text-center text-white h-20 mt-5 sm:mt-5 md:mt-10">
+          {{ 'skill' | translate }}
+        </h1>
+      </div>
+      <div class="mt-5 sm:mt-8 md:mt-10">
+        <h4 class="text-letf ml-5 text-white">
+          {{ 'presentation of skills' | translate }}
+        </h4>
+      </div>
+    </div>
+    
   </div>
+  
+  <div class="border text-center mt-10 grid grid-cols-1 space-x-4">
+    <div>
+      <h1 class="font-bold text-white text-2xl">{{ 'greeting' | translate }}</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 ml-4 mr-5 mt-5">
+
+      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
+        <figure><img class="h-full flex justify-center w-full rounded-lg" src="../../../assets/img/montufar.png" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title font-bold mt-2">Unidad Educativa Replica "Juan Pío" Montufar</h2>
+          <p><span class="font-bold">Titulo:</span>Bachiller en Ciencias</p>
+          <span>Finalizado</span>
+          <div class="card-actions justify-center rounded-lg">
+            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
+        <figure><img class="h-full flex justify-center w-full rounded-lg" src="../../../assets/img/yavirac.png" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title font-bold">Institulo tecnologico Superior Yavirac</h2>
+          <p><span class="font-bold">Titulo:</span>Tecnologo en Desarrollo de Software</p>
+          <span>Finalizado</span>
+          <div class="card-actions justify-center rounded-lg">
+            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
+        <figure><img class="h-full mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/unibe.png" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title mt-20 font-bold">Universidad Iberoamericana</h2>
+          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
+          <span>en curso</span>
+          <div class="card-actions justify-center mt-8 rounded-lg">
+            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
+        <figure><img class="h-22 mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/maticore.png" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title font-bold">Manticore Labs</h2>
+          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
+          <span>en curso</span>
+          <div class="card-actions justify-center">
+            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
+        <figure><img class="h-full mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/mind.png" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title mt-20 font-bold">Corporación Jet Mind</h2>
+          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
+          <span>en curso</span>
+          <div class="card-actions justify-center">
+            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
+        <figure><img class="h-full mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/unibe.png" alt="Shoes" /></figure>
+        <div class="card-body">
+          <h2 class="card-title mt-20 font-bold">Mad Js</h2>
+          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
+          <span>en curso</span>
+          <div class="card-actions justify-center">
+            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<div class="mt-20"></div>
 </div>
-
-<div class="bg-primary grid grid-cols-3 pt-2 p-1 ">
-  <div class="col-span-1 m-8 transition-transform rounded-md transform hover:-translate-y-1 hover:scale-105">
-    <img class="mx-auto w-auto h-80 border" src="../../../assets/img/steveen.jpeg" alt="steveen">
-  </div>
-
-  <!-- <div class="col-span-1 bg-dark text-white p-4 rounded-md shadow-md m-8 transition-transform transform hover:-translate-y-1 hover:scale-105">
-    <img class="mx-auto w-auto h-80" src="../../../assets/img/steveen.jpeg" alt="steveen">
-  </div> -->
-
-
-  <div class="col-span-1 bg-dark border text-white p-4 rounded-md shadow-md m-8 transition-transform transform hover:-translate-y-1 hover:scale-105">
-    <h1 class="text-4xl font-bold text-center mb-4">
-      {{ 'software' | translate }}
-    </h1>
-    <h4 class="text-center">
-      Soy Steveen Ordoñez, Tecnólogo en desarrollo de software con experiencia en desarrollo web tanto en el backend como el frontend.
-    </h4>
-  </div>
-  
-  <div class="col-span-1 bg-dark border text-white p-4 rounded-md shadow-md m-8 transition-transform transform hover:-translate-y-1 hover:scale-105">
-    <h1 class="text-4xl font-bold text-center mb-4">
-      {{ 'skill' | translate }}
-    </h1>
-    <dl class="">
-      <dt class="font-bold">Base de Datos:</dt>
-      <dd>Postgres, MongoDB, MySQL</dd>
-      
-      <dt class="font-bold">Lenguajes de Programación:</dt>
-      <dd>Java, PHP, JavaScript, TypeScript, Dart, Python</dd>
-      
-      <dt class="font-bold">Frameworks:</dt>
-      <dd>Angular, Laravel, Django, Spring Boot, Tailwind, Bootstrap, React, NestJS</dd>
-      
-      <dt class="font-bold">Arquitecturas:</dt>
-      <dd>Monolíticos, Microservicios</dd>
-    </dl>
-  </div>
-  
-  
-  
-</div>
-
-
-
-
-<h1 >{{ 'greeting' | translate }}</h1>
-

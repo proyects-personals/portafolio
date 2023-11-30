@@ -3,5 +3,7 @@
   "software":"Desarrollador de Software",
   "skill":"Habilidades de Programación",
   "greeting": "¡Hola, mundo!",
-  "welcome": "Bienvenido a mi aplicación."
+  "welcome": "Bienvenido a mi aplicación.",
+  "presentation": "Soy Steveen Ordoñez, Tecnólogo en desarrollo de software con experiencia integral en diseño y desarrollo web, abarcando tanto el backend como el frontend, y destacando en la administración de bases de datos.",
+  "presentation of skills": "Mis habilidades se centran en TypeScript, PHP, Java y JavaScript, utilizando frameworks como Angular, Laravel y NestJS. Además, tengo experiencia con bases de datos como Postgres y MySQL."
 }

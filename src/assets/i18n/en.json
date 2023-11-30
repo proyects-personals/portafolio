@@ -1,7 +1,9 @@
 {
-  "contact":"Contact me",
-  "software":"Software Developer",
-  "skill":"Programming Skills",
+  "contact": "Contact me",
+  "software": "Software Developer",
+  "skill": "Programming Skills",
   "greeting": "Hello, world!",
-  "welcome": "Welcome to my app."
+  "welcome": "Welcome to my app.",
+  "presentation": "I am Steveen Ordoñez, a software development technologist with comprehensive experience in web design and development, covering both backend and frontend, and excelling in database administration.",
+  "presentation of skills": "My skills focus on TypeScript, PHP, Java and JavaScript, using frameworks such as Angular, Laravel and NestJS. Additionally, I have experience with databases such as Postgres and MySQL."
 }

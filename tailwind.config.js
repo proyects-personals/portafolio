@@ -12,6 +12,7 @@ const { createThemes } = require('tw-colors');
                'primary': '#F0F0F0',
                'secondary': 'darkblue',
                'brand': '#F3F3F3',
+               'red': '#560000',
             },
            dark: { 
               'dark':'#000000',

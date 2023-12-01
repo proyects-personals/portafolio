@@ -5,9 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .bg-primary{
-    background-color: #4A4A4A !important;
-} */
+
+.shadow-text {
+    text-shadow: 0 0 4px #000000!important;
+}
 
 .l-dark{
     color:#D2D2D2;

@@ -1,6 +1,6 @@
 <div class="max-w-auto bg-primary mx-h-full">
 
-  <div class="h-20 bg-neutral grid grid-cols-3 gap-3 shadow-sm shadow-white">
+  <div class="h-20 w-full bg-neutral grid grid-cols-3 gap-3 shadow-sm fixed shadow-white">
 
     <div class="items-center flex items-center justify-start ml-5">
       <h1 class="text-lg font-semibold text-white">{{ 'contact' | translate }}</h1>
@@ -25,7 +25,7 @@
           <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
         </button>
       </div>
-  
+
       <div class="flex items-center">
         <button (click)="toggleLanguageDropdown()">
           <i class="fa-solid fa-language cursor-pointer text-white"></i>
@@ -39,10 +39,77 @@
       </div>
     </div>
   </div>
-  
-  <!-- hasta aqui esta el nav -->
-  
-  <div class="grid grid-cols-1 gap-1 md:grid-cols-3 mt-10 ml-5 mr-5">
+
+  <div class="h-96 bg-primary flex flex-col justify-center login-container items-center">
+    <h1 class="font-bold text-4xl shadow-text">Conoce más sobre mí</h1>
+    <button class="btn bg-secondary text-center text-white rounded-lg h-12 w-40">ver infomracion</button>
+  </div>
+  <div class="text-center mt-2">
+    <h1 class="font-bold text-2xl shadow-text">Habilidades en Programación</h1>
+  </div>
+
+  <div class="mt-10 grid grid-cols-4 bg-primary ml-5 mr-5 space-x-3">
+    <div class="flex items-center justify-center">
+        <img class="w-30 h-20" src="../../../assets/img/Linguajes.png" alt="">
+    </div>
+    <div class="flex items-center justify-center mt-">
+      <img class="w-30 h-20" src="../../../assets/img/base.png" alt="">
+    </div>
+    <div class="flex items-center justify-center">
+      <img class="w-30 h-20" src="../../../assets/img/frameworks.png" alt="">
+    </div>
+    <div class="flex items-center justify-center">
+      <img class="w-30 h-20" src="../../../assets/img/versiones.png" alt="">
+    </div>
+    <!-- titulos -->
+    <div class="flex items-center justify-center mt-3">
+      <h1 class="font-bold text-lg">
+        Lenjuages de programacion
+      </h1>
+    </div>
+    <div class="flex items-center justify-center mt-3">
+      <h1 class="font-bold text-lg">
+        Base de datos
+      </h1>
+    </div>
+    <div class="flex items-center justify-center mt-3">
+      <h1 class="font-bold text-lg">
+        Frameworks
+      </h1>
+    </div>
+    <div class="flex items-center justify-center mt-3">
+      <h1 class="font-bold text-lg">
+        Gestionador de versiones
+      </h1>
+    </div>
+    <!-- texto -->
+    <div class="flex  justify-center text-center mt-3">
+      <p>
+        Los lenguajes con los que mas me familiarizo son:
+        TypeScript, Php, Java, JavaScript, Python
+      </p>
+    </div>
+    <div class="flex justify-center text-center mt-3">
+      <p>
+        En base de datos tengo experiencia con postgrest y MySql ademas de modelar y administrar base de datos.
+      </p>
+    </div>
+    <div class="flex justify-center text-center mt-3">
+      <p>
+        En frameworks tengo experiencia en angular, laravel, Nestjs Spring Boot, por lo que he trabajado tanto como programador frontend como backend.
+      </p>
+    </div>
+    <div class="flex justify-center text-center mt-3">
+      <p>
+        Para gestionar versiones lo que mas utilizo es git con sus interfaces como github y gitlab.
+      </p>
+    </div>
+  </div>
+
+</div>
+<!-- hasta aqui esta el nav -->
+
+<!-- <div class="grid grid-cols-1 gap-1 md:grid-cols-3 mt-10 ml-5 mr-5">
   
     <div class="flex items-center justify-center h-96 rounded-lg shadow-sm shadow-white">
       <img class="mx-auto w-auto h-full w-full rounded-lg" src="../../../assets/img/steveen.jpeg" alt="steveen">
@@ -75,9 +142,9 @@
       </div>
     </div>
     
-  </div>
-  
-  <div class="border text-center mt-10 grid grid-cols-1 space-x-4">
+  </div> -->
+
+<!-- <div class="border text-center mt-10 grid grid-cols-1 space-x-4">
     <div>
       <h1 class="font-bold text-white text-2xl">{{ 'greeting' | translate }}</h1>
     </div>
@@ -157,6 +224,4 @@
       </div>
 
     </div>
-  </div>
-<div class="mt-20"></div>
-</div>
+  </div> -->

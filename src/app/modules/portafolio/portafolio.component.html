@@ -1,6 +1,6 @@
-<div class="max-w-auto bg-dark mx-h-full">
+<div class="max-w-auto bg-primary mx-h-full">
 
-  <div class="h-20 bg-primary grid grid-cols-3 gap-3">
+  <div class="h-20 bg-neutral grid grid-cols-3 gap-3 shadow-sm shadow-white">
 
     <div class="items-center flex items-center justify-start ml-5">
       <h1 class="text-lg font-semibold text-white">{{ 'contact' | translate }}</h1>
@@ -38,54 +38,17 @@
         </ul>
       </div>
     </div>
-    <!-- <div class="flex items-center">
-      <i class="fa-solid fa-envelope mr-2"></i> 
-      <h2 class="text-lg font-semibold">{{ 'contact' | translate }}</h2>
-    </div>
-    
-    <div class="flex items-center">
-      <a href="tu-enlace-a-LinkedIn">
-        <i class="fa-brands fa-linkedin mx-2"></i> 
-      </a>
-      <a href="tu-enlace-a-Instagram">
-        <i class="fa-brands fa-instagram mx-2"></i>
-      </a>
-      <a href="tu-enlace-a-Discord">
-        <i class="fa-brands fa-discord mx-2"></i>
-      </a>
-      <a href="tu-enlace-a-GitHub">
-        <i class="fa-brands fa-github mx-2"></i>
-      </a>
-    </div>
-  
-  
-    <div class="flex justify-items-end">
-      <div class="flex justify-items-end">
-        <button (click)="toggleTheme()">
-          <i class="pt-1" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
-        </button>
-      </div>
-      <div class="relative z-10">
-        <button (click)="toggleLanguageDropdown()">
-          <i class="pt-1 fa-solid fa-language cursor-pointer mx-2"></i>
-        </button>
-        <ul *ngIf="languageDropdownOpen" class="absolute right-0 mt-[-5px] p-2 bg-white shadow-md rounded">
-          <li class="text-dark" (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
-          <li class="text-dark" (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
-        </ul>
-      </div>
-          
-    </div> -->
   </div>
   
   <!-- hasta aqui esta el nav -->
   
   <div class="grid grid-cols-1 gap-1 md:grid-cols-3 mt-10 ml-5 mr-5">
   
-    <div class="flex items-center justify-center h-96 rounded-lg">
+    <div class="flex items-center justify-center h-96 rounded-lg shadow-sm shadow-white">
       <img class="mx-auto w-auto h-full w-full rounded-lg" src="../../../assets/img/steveen.jpeg" alt="steveen">
     </div>
-    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-primary">
+
+    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-neutral shadow-sm shadow-white">
       <div class="flex items-center justify-center">
         <h1 class="text-4xl font-bold text-white text-center h-20 mt-5 sm:mt-5 md:mt-10">
           {{ 'software' | translate }}
@@ -99,7 +62,7 @@
     </div>
     
   
-    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-primary">
+    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-neutral shadow-sm shadow-white">
       <div class="flex items-center justify-center">
         <h1 class="text-4xl font-bold text-center text-white h-20 mt-5 sm:mt-5 md:mt-10">
           {{ 'skill' | translate }}

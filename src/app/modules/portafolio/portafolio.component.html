@@ -3,7 +3,8 @@
   <div class="h-20 w-full bg-neutral grid grid-cols-3 gap-3 shadow-sm fixed shadow-white">
 
     <div class="items-center flex items-center justify-start ml-5">
-      <h1 class="text-lg font-semibold text-white">{{ 'contact' | translate }}</h1>
+      <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="text-lg font-semibold text-white">{{ 'contact' |
+        translate }}</button>
     </div>
     <div class="flex items-center justify-center">
       <a href="tu-enlace-a-LinkedIn">
@@ -43,9 +44,78 @@
   <div class="h-96 bg-primary flex flex-col justify-center portada-container items-center">
     <h1 class="font-bold text-4xl shadow-text uppercase">Conoce más sobre mí</h1>
     <button id="toggleButton" (click)="toggleMenu()"
-      class="btn bg-secondary text-center text-white rounded-lg h-12 w-40 uppercase">ver  mí infomración</button>
+      class="btn bg-secondary text-center text-white rounded-lg h-12 w-40 uppercase">ver mí infomración</button>
   </div>
 
+  <!-- modal del correo -->
+  <div *ngIf="isMenuOpenEmail"
+    [ngClass]="{'dropdown-content': showMenuDownEmail, 'dropdown-content-up': !showMenuDownEmail}" class="relative z-10"
+    aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div
+          class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div class="bg-neutral flex justify-center items-center text-xl font-bold">
+            <h1>Steveen Ordoñez</h1>
+          </div>
+          <form [formGroup]="formGroup" action="javascript:void(0)" (submit)="send()" class="bg-neutral shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="full-name">
+                Nombre completos
+              </label>
+              <input formControlName="from_name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="full-name" type="text" placeholder="nombres completos">
+            </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Correo Electronico
+              </label>
+              <input formControlName="from_email"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email" type="text" placeholder="Email">
+            </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="subject">
+                Sujeto
+              </label>
+              <input formControlName="subject"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="subject" type="text" placeholder="sujeto">
+            </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                Mensaje
+              </label>
+              <textarea formControlName="message"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="message" type="text" placeholder="mensaje">
+            </textarea>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                Enviar
+              </button>
+              <button type="button" (click)="cerrarModalEmail()" type="button"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cerrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal de la informacion personal -->
   <div *ngIf="isMenuOpen" [ngClass]="{'dropdown-content': showMenuDown, 'dropdown-content-up': !showMenuDown}"
     class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
@@ -60,13 +130,14 @@
           </div>
           <div class="bg-neutral grid grid-cols-2 px-3 p-5">
 
-            <div class="image-container text-center flex items-center justify-center" (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
+            <div class="image-container text-center flex items-center justify-center"
+              (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
               <img *ngIf="mostrarPrimaria" class="h-52 w-64 primary-image" src="../../../assets/img/steveen.jpeg"
                 alt="">
               <img *ngIf="mostrarSecundaria" class="h-52 w-64 secondary-image" src="../../../assets/img/steveen1.jpg"
                 alt="">
               <p class="text-white"><span class="font-bold">Hola amigos!</span>
-              
+
             </div>
 
 

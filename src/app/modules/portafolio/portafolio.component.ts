@@ -1,6 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import emailjs from '@emailjs/browser'
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-portafolio',
@@ -15,21 +17,48 @@ export class PortafolioComponent implements OnInit {
   languageDropdownOpen: boolean = false;
   isMenuOpen = false;
   showMenuDown = true;
+  isMenuOpenEmail = false;
+  showMenuDownEmail = true;
   mostrarPrimaria = false;
   mostrarSecundaria = false;
+  formGroup!: FormGroup;
 
   constructor(
     public _translate: TranslateService,
     private el: ElementRef,
     private renderer: Renderer2,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private fb:FormBuilder
   ) {
     this.addLangs();
     this.defaultLang();
+    this.initForm();
+  }
+
+  initForm() {
+    this.formGroup = this.fb.group({
+      from_name:'',
+      to_name:'Admin',
+      from_email:'',
+      subject:'',
+      message:'',
+    })
+  }
+
+  async send() {
+    emailjs.init('qIVLgZYRhPQybiqfI')
+    let response = await emailjs.send('service_rtyq5ds','template_b6reeee',{
+      from_name:this.formGroup.value.from_name,
+      to_name:this.formGroup.value.to_name,
+      from_email:this.formGroup.value.from_email,
+      subject:this.formGroup.value.subject,
+      message:this.formGroup.value.message,
+    });
+    alert('Message has been sent');
+    this.formGroup.reset();
   }
 
   ngOnInit(): void {
-    // Obtener el tema almacenado en localStorage o usar 'light' por defecto
     const savedTheme = localStorage.getItem('theme') || 'light';
     this.changeTheme(savedTheme);
   }
@@ -57,7 +86,6 @@ export class PortafolioComponent implements OnInit {
     this.mostrarSecundaria = false;
   }
   
-
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     const windowHeight = window.innerHeight;
@@ -65,6 +93,23 @@ export class PortafolioComponent implements OnInit {
     this.showMenuDown = buttonBottom < windowHeight / 2;
 
   }
+
+  toggleMenuEmail() {
+    this.isMenuOpenEmail = !this.isMenuOpenEmail;
+  }
+
+  cerrarModalEmail(): void {
+    this.isMenuOpenEmail = false;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResizeEmail(event: any) {
+    const windowHeight = window.innerHeight;
+    const buttonBottom = document.getElementById('toggleButtonEmail')?.getBoundingClientRect().bottom || 0;
+    this.showMenuDown = buttonBottom < windowHeight / 2;
+
+  }
+
 
   cambiarIdioma(idioma: string) {
     this._translate.use(idioma); // Cambiar el idioma

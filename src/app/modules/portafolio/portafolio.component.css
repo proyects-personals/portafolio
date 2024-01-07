@@ -1,7 +1,27 @@
-.login-container {
+.portada-container {
     background-image: url('../../../assets/img/inicio1.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
 }
+
+.image-container {
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .primary-image,
+  .secondary-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .secondary-image {
+    transform: rotateY(180deg); 
+  }
+  

@@ -40,188 +40,167 @@
     </div>
   </div>
 
-  <div class="h-96 bg-primary flex flex-col justify-center login-container items-center">
-    <h1 class="font-bold text-4xl shadow-text">Conoce más sobre mí</h1>
-    <button class="btn bg-secondary text-center text-white rounded-lg h-12 w-40">ver infomracion</button>
-  </div>
-  <div class="text-center mt-2">
-    <h1 class="font-bold text-2xl shadow-text">Habilidades en Programación</h1>
+  <div class="h-96 bg-primary flex flex-col justify-center portada-container items-center">
+    <h1 class="font-bold text-4xl shadow-text uppercase">Conoce más sobre mí</h1>
+    <button id="toggleButton" (click)="toggleMenu()"
+      class="btn bg-secondary text-center text-white rounded-lg h-12 w-40 uppercase">ver  mí infomración</button>
   </div>
 
-  <div class="mt-10 grid grid-cols-4 bg-primary ml-5 mr-5 space-x-3">
-    <div class="flex items-center justify-center">
-        <img class="w-30 h-20" src="../../../assets/img/Linguajes.png" alt="">
+  <div *ngIf="isMenuOpen" [ngClass]="{'dropdown-content': showMenuDown, 'dropdown-content-up': !showMenuDown}"
+    class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div
+          class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div class="bg-neutral flex justify-center items-center text-xl font-bold">
+            <h1>Steveen Ordoñez</h1>
+          </div>
+          <div class="bg-neutral grid grid-cols-2 px-3 p-5">
+
+            <div class="image-container text-center flex items-center justify-center" (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
+              <img *ngIf="mostrarPrimaria" class="h-52 w-64 primary-image" src="../../../assets/img/steveen.jpeg"
+                alt="">
+              <img *ngIf="mostrarSecundaria" class="h-52 w-64 secondary-image" src="../../../assets/img/steveen1.jpg"
+                alt="">
+              <p class="text-white"><span class="font-bold">Hola amigos!</span>
+              
+            </div>
+
+
+
+            <div class="px-2">
+              <div class="text-white">
+                <span class="font-bold">Informacion Personal:</span>
+                <ul class="list-inside ml-4 text-sm">
+                  <li class="relative flex items-center">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                    <p class="text-white"><span class="font-bold ml-2">Edad:</span> 23</p>
+                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                  </li>
+                  <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                    <p class="text-white"><span class="font-bold ml-2">Residencia:</span> Quito-Ecuador</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="text-white">
+                <span class="font-bold">Formación académica:</span>
+                <ul class="list-inside ml-4 text-sm">
+                  <li class="relative flex items-center">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                    <span class="ml-2">Bachillerato en Ciencias.</span>
+                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                  </li>
+                  <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                    <span class="ml-2">Tecnología en Software.</span>
+                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                  </li>
+                  <li class="relative mt-3">
+                    <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
+                    <span class="ml-2">Ingeniería en Software.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="text-white">
+                <span class="font-bold">Experiencia Laboral:</span>
+                <ul class="list-inside ml-4 text-sm">
+                  <li class="relative flex items-center">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                    <span class="ml-2">Monto Acrilica.</span>
+                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                  </li>
+                  <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                    <span class="ml-2">Manticore-labs.</span>
+                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                  </li>
+                  <li class="relative mt-3">
+                    <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
+                    <span class="ml-2">Corporación Jetmind.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+            <button type="button" (click)="cerrarModal()"
+              class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cerrar</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex items-center justify-center mt-">
-      <img class="w-30 h-20" src="../../../assets/img/base.png" alt="">
-    </div>
-    <div class="flex items-center justify-center">
-      <img class="w-30 h-20" src="../../../assets/img/frameworks.png" alt="">
-    </div>
-    <div class="flex items-center justify-center">
-      <img class="w-30 h-20" src="../../../assets/img/versiones.png" alt="">
-    </div>
-    <!-- titulos -->
-    <div class="flex items-center justify-center mt-3">
-      <h1 class="font-bold text-lg">
-        Lenjuages de programacion
-      </h1>
-    </div>
-    <div class="flex items-center justify-center mt-3">
-      <h1 class="font-bold text-lg">
-        Base de datos
-      </h1>
-    </div>
-    <div class="flex items-center justify-center mt-3">
-      <h1 class="font-bold text-lg">
-        Frameworks
-      </h1>
-    </div>
-    <div class="flex items-center justify-center mt-3">
-      <h1 class="font-bold text-lg">
-        Gestionador de versiones
-      </h1>
-    </div>
-    <!-- texto -->
-    <div class="flex  justify-center text-center mt-3">
-      <p>
-        Los lenguajes con los que mas me familiarizo son:
-        TypeScript, Php, Java, JavaScript, Python
-      </p>
-    </div>
-    <div class="flex justify-center text-center mt-3">
-      <p>
-        En base de datos tengo experiencia con postgrest y MySql ademas de modelar y administrar base de datos.
-      </p>
-    </div>
-    <div class="flex justify-center text-center mt-3">
-      <p>
-        En frameworks tengo experiencia en angular, laravel, Nestjs Spring Boot, por lo que he trabajado tanto como programador frontend como backend.
-      </p>
-    </div>
-    <div class="flex justify-center text-center mt-3">
-      <p>
-        Para gestionar versiones lo que mas utilizo es git con sus interfaces como github y gitlab.
-      </p>
-    </div>
+
+
   </div>
 
-</div>
-<!-- hasta aqui esta el nav -->
+  <div>
 
-<!-- <div class="grid grid-cols-1 gap-1 md:grid-cols-3 mt-10 ml-5 mr-5">
-  
-    <div class="flex items-center justify-center h-96 rounded-lg shadow-sm shadow-white">
-      <img class="mx-auto w-auto h-full w-full rounded-lg" src="../../../assets/img/steveen.jpeg" alt="steveen">
+    <div class="text-center mt-2">
+      <h1 class="font-bold text-2xl shadow-text uppercase">Habilidades en Programación</h1>
     </div>
 
-    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-neutral shadow-sm shadow-white">
-      <div class="flex items-center justify-center">
-        <h1 class="text-4xl font-bold text-white text-center h-20 mt-5 sm:mt-5 md:mt-10">
-          {{ 'software' | translate }}
-        </h1>
+    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-5 mr-5 px-5 space-x-3 space-y-1">
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+          <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
+          </figure>
+          <div class="card-body mt-2">
+            <h2 class="card-title uppercase font-bold">Lenjuages de Programación</h2>
+            <p class="text-sm">Los lenguajes con los que mas me familiarizo son:
+              TypeScript, Php, Java, JavaScript, Python</p>
+          </div>
+        </div>
       </div>
-      <div class="mt-5 sm:mt-8 md:mt-10">
-        <h4 class="text-letf ml-5 text-white">
-          {{ 'presentation' | translate }}
-        </h4>
+
+
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+          <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
+          <div class="card-body mt-2">
+            <h2 class="card-title uppercase font-bold">Base de datos</h2>
+            <p class="text-sm">En base de datos tengo experiencia con postgrest y MySql ademas de modelar y administrar
+              base de datos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+          <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
+          <div class="card-body mt-2">
+            <h2 class="card-title uppercase font-bold">Frameworks</h2>
+            <p class="text-sm">En frameworks tengo experiencia en angular, laravel, Nestjs Spring Boot, por lo que he
+              trabajado tanto como
+              programador frontend como backend.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+          <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
+              alt="Frameworks" /></figure>
+          <div class="card-body mt-2">
+            <h2 class="card-title uppercase font-bold">Gestionador de versiones</h2>
+            <p class="text-sm">Para gestionar versiones lo que mas utilizo es git con sus interfaces como github y
+              gitlab.</p>
+
+          </div>
+        </div>
       </div>
     </div>
-    
-  
-    <div class="grid grid-cols-1 ml-1 mr-1 rounded-lg bg-neutral shadow-sm shadow-white">
-      <div class="flex items-center justify-center">
-        <h1 class="text-4xl font-bold text-center text-white h-20 mt-5 sm:mt-5 md:mt-10">
-          {{ 'skill' | translate }}
-        </h1>
-      </div>
-      <div class="mt-5 sm:mt-8 md:mt-10">
-        <h4 class="text-letf ml-5 text-white">
-          {{ 'presentation of skills' | translate }}
-        </h4>
-      </div>
-    </div>
-    
-  </div> -->
-
-<!-- <div class="border text-center mt-10 grid grid-cols-1 space-x-4">
-    <div>
-      <h1 class="font-bold text-white text-2xl">{{ 'greeting' | translate }}</h1>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 ml-4 mr-5 mt-5">
-
-      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
-        <figure><img class="h-full flex justify-center w-full rounded-lg" src="../../../assets/img/montufar.png" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title font-bold mt-2">Unidad Educativa Replica "Juan Pío" Montufar</h2>
-          <p><span class="font-bold">Titulo:</span>Bachiller en Ciencias</p>
-          <span>Finalizado</span>
-          <div class="card-actions justify-center rounded-lg">
-            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
-        <figure><img class="h-full flex justify-center w-full rounded-lg" src="../../../assets/img/yavirac.png" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title font-bold">Institulo tecnologico Superior Yavirac</h2>
-          <p><span class="font-bold">Titulo:</span>Tecnologo en Desarrollo de Software</p>
-          <span>Finalizado</span>
-          <div class="card-actions justify-center rounded-lg">
-            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
-        <figure><img class="h-full mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/unibe.png" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title mt-20 font-bold">Universidad Iberoamericana</h2>
-          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
-          <span>en curso</span>
-          <div class="card-actions justify-center mt-8 rounded-lg">
-            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
-        <figure><img class="h-22 mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/maticore.png" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title font-bold">Manticore Labs</h2>
-          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
-          <span>en curso</span>
-          <div class="card-actions justify-center">
-            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
-        <figure><img class="h-full mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/mind.png" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title mt-20 font-bold">Corporación Jet Mind</h2>
-          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
-          <span>en curso</span>
-          <div class="card-actions justify-center">
-            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card mr-2 rounded-lg bg-primary shadow-xl mt-2">
-        <figure><img class="h-full mt-5 flex justify-center w-full rounded-lg" src="../../../assets/img/unibe.png" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title mt-20 font-bold">Mad Js</h2>
-          <p><span class="font-bold">Titulo:</span>Ingenieria en Software</p>
-          <span>en curso</span>
-          <div class="card-actions justify-center">
-            <button class="btn btn-red bg-red rounded-sm h-10 w-full text-dark">Buy Now</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div> -->
+  </div>

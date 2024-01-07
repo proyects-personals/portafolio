@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -13,6 +13,10 @@ export class PortafolioComponent implements OnInit {
   sunMoonIcon: string = 'fa-solid fa-moon';
   selectedTheme: string = '';
   languageDropdownOpen: boolean = false;
+  isMenuOpen = false;
+  showMenuDown = true;
+  mostrarPrimaria = false;
+  mostrarSecundaria = false;
 
   constructor(
     public _translate: TranslateService,
@@ -28,6 +32,38 @@ export class PortafolioComponent implements OnInit {
     // Obtener el tema almacenado en localStorage o usar 'light' por defecto
     const savedTheme = localStorage.getItem('theme') || 'light';
     this.changeTheme(savedTheme);
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+
+  abrirModal(): void {
+    this.isMenuOpen = true;
+  }
+
+  cerrarModal(): void {
+    this.isMenuOpen = false;
+  }
+
+  mostrarImagenSecundaria(): void {
+    this.mostrarPrimaria = false;
+    this.mostrarSecundaria = true;
+  }
+  
+  ocultarImagenSecundaria(): void {
+    this.mostrarPrimaria = true;
+    this.mostrarSecundaria = false;
+  }
+  
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    const windowHeight = window.innerHeight;
+    const buttonBottom = document.getElementById('toggleButton')?.getBoundingClientRect().bottom || 0;
+    this.showMenuDown = buttonBottom < windowHeight / 2;
+
   }
 
   cambiarIdioma(idioma: string) {

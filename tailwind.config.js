@@ -17,8 +17,7 @@ const { createThemes } = require('tw-colors');
                "warning": "#ff4100",
                "error": "#f10042",
                'brand': '#4A4A4A',
-               'brand': '#F3F3F3',
-               'red': '#560000',
+               'red': '#8d0013d7',
                'white': '#000000',
             },
            dark: { 
@@ -33,6 +32,7 @@ const { createThemes } = require('tw-colors');
             "error": "#f10042",
             'brand': '#4A4A4A',
             'white': '#ffffff',
+            'red': '#8d0013d7',
            },
            forest: { 
               'primary': '#2A9D8F',

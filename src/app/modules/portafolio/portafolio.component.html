@@ -1,55 +1,43 @@
-<div class="max-w-auto bg-primary mx-h-full">
-
-  <div class="h-20 w-full bg-neutral grid grid-cols-3 gap-3 shadow-sm fixed shadow-white">
-
-    <div class="items-center flex items-center justify-start ml-5">
-      <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="text-lg font-semibold text-white">{{ 'contact' |
-        translate }}</button>
-    </div>
-    <div class="flex items-center justify-center">
-      <a href="tu-enlace-a-LinkedIn">
-        <i class="fa-brands fa-linkedin mx-2 text-white"></i>
-      </a>
-      <a href="tu-enlace-a-Instagram">
-        <i class="fa-brands fa-instagram mx-2 text-white"></i>
-      </a>
-      <a href="tu-enlace-a-Discord">
-        <i class="fa-brands fa-discord mx-2 text-white"></i>
-      </a>
-      <a href="tu-enlace-a-GitHub">
-        <i class="fa-brands fa-github mx-2 text-white"></i>
-      </a>
-    </div>
-    <div class="grid grid-cols-2 gap-2">
-      <div class="flex items-center justify-end">
-        <button (click)="toggleTheme()">
-          <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
-        </button>
-      </div>
-
-      <div class="flex items-center">
-        <button (click)="toggleLanguageDropdown()">
-          <i class="fa-solid fa-language cursor-pointer text-white"></i>
-        </button>
-        <ul *ngIf="languageDropdownOpen" class="absolute h-12 text-center w-16 mt-20 bg-dark shadow-md rounded">
-          <li class="cursor-pointer hover:bg-secondary text-white"
-            (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
-          <li class="cursor-pointer hover:bg-secondary text-white"
-            (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="h-96 bg-primary flex flex-col justify-center portada-container items-center">
-    <h1 class="font-bold text-4xl shadow-text uppercase">{{ 'Learn more about me' |
-      translate }}</h1>
-    <button id="toggleButton" (click)="toggleMenu()"
-      class="btn bg-secondary text-center text-sm text-white rounded-lg h-12 w-40 uppercase">{{ 'See my information' |
+<div class="fixed top-0 left-0 w-full h-20 z-50 bg-neutral grid grid-cols-3 gap-3 shadow-sm fixed shadow-white">
+  <div class="items-center flex items-center justify-start ml-5">
+    <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="text-lg font-semibold text-white">{{ 'contact' |
       translate }}</button>
   </div>
+  <div class="flex items-center justify-center">
+    <a href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
+      <i class="fa-brands fa-linkedin mx-2 text-white"></i>
+    </a>
+    <a href="https://www.instagram.com/steveen_cues/" target="_blank">
+      <i class="fa-brands fa-instagram mx-2 text-white"></i>
+    </a>
+    <a href="tu-enlace-a-Discord">
+      <i class="fa-brands fa-discord mx-2 text-white"></i>
+    </a>
+    <a href="https://github.com/hscordonez" target="_blank">
+      <i class="fa-brands fa-github mx-2 text-white"></i>
+    </a>
+  </div>
+  <div class="grid grid-cols-2 gap-2">
+    <div class="flex items-center justify-end">
+      <button (click)="toggleTheme()">
+        <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+      </button>
+    </div>
 
-  <!-- modal del correo -->
+    <div class="flex items-center">
+      <button (click)="toggleLanguageDropdown()">
+        <i class="fa-solid fa-language cursor-pointer text-white"></i>
+      </button>
+      <ul *ngIf="languageDropdownOpen" class="absolute h-12 text-center w-16 mt-20 bg-dark shadow-md rounded">
+        <li class="cursor-pointer hover:bg-secondary text-white"
+          (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+        <li class="cursor-pointer hover:bg-secondary text-white"
+          (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- modal del correo -->
   <div *ngIf="isMenuOpenEmail"
     [ngClass]="{'dropdown-content': showMenuDownEmail, 'dropdown-content-up': !showMenuDownEmail}" class="relative z-10"
     aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -58,69 +46,69 @@
 
     <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
       <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <div
-          class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+        <div 
+          class="relative transform overflow-hidden rounded-lg bg-neutral text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
           <div class="bg-neutral flex justify-center items-center text-xl font-bold px-3 p-3">
-            <i class="fa-solid fa-envelope text-4xl"></i>
+            <i class="fa-solid fa-envelope text-white text-4xl"></i>
           </div>
           <form [formGroup]="formGroup" action="javascript:void(0)" (submit)="send()"
-            class="bg-neutral shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            class="bg-neutral px-8 pt-6 pb-8 mb-4">
 
             <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="full-name">
+              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+               for="full-name">
                 {{ 'Full names' |
                 translate }}
               </label>
               <input formControlName="from_name"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="full-name" type="text" placeholder="{{ 'Example full name' |
+              class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                id="full-name" type="text" placeholder="{{ 'Full names' |
                 translate }}">
             </div>
 
             <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="email">
                 {{ 'Email' |
                 translate }}
               </label>
               <input formControlName="from_email"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email" type="text" placeholder="{{ 'Example emial' |
+              class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                id="email" type="text" placeholder="{{ 'Email' |
                 translate }}">
             </div>
 
             <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="subject">
+              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="subject">
                 {{ 'Affair' |
                 translate }}
               </label>
               <input formControlName="subject"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 id="subject" type="text" placeholder="{{ 'Affair' |
                 translate }}">
             </div>
 
             <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="message">
                 {{ 'Message' |
                 translate }}
               </label>
               <textarea formControlName="message"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 id="message" type="text" placeholder="{{ 'Example message' |
                 translate }}">
             </textarea>
             </div>
-
-            <div class="flex items-center justify-between">
-              <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit">
-                {{ 'Send' |
+            <div class="px-4 py-3 h-full w-full sm:flex sm:flex-row-reverse sm:px-6 flex space-x-3">
+              <button type="button" (click)="cerrarModalEmail()" type="button"
+                class="ml-2 bg-red hover:bg-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                {{ 'Close' |
                 translate }}
               </button>
-              <button type="button" (click)="cerrarModalEmail()" type="button"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                {{ 'Close' |
+              <button 
+                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit">
+                {{ 'Send' |
                 translate }}
               </button>
             </div>
@@ -141,7 +129,7 @@
         <div
           class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
           <div class="bg-neutral flex justify-center items-center text-xl font-bold">
-            <h1>Steveen Ordoñez</h1>
+            <h1 class="text-white">Steveen Ordoñez</h1>
           </div>
           <div class="bg-neutral grid grid-cols-2 px-3 p-5">
 
@@ -235,7 +223,7 @@
           </div>
           <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
             <button type="button" (click)="cerrarModal()"
-              class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+              class="mt-3 inline-flex w-full justify-center rounded-md bg-red hover:bg-error px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
               {{ 'Close' |
               translate }}</button>
           </div>
@@ -243,21 +231,31 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div>
+<main class="mt-20 bg-white-secondary">
+  <section class="h-96 bg-primary flex flex-col justify-center portada-container items-center">
+    <h1 class="font-bold text-4xl shadow-text uppercase">{{ 'Learn more about me' |
+      translate }}
+    </h1>
+    <button id="toggleButton" (click)="toggleMenu()"
+      class="btn bg-secondary text-center text-sm text-white rounded-lg h-12 w-40 uppercase">{{ 'See my information' |
+      translate }}
+    </button>
+  </section>
 
-    <div class="text-center mt-2">
-      <h1 class="font-bold text-2xl shadow-text uppercase">{{ 'Skill' |
-        translate }}</h1>
-    </div>
+  <section class="max-w-auto bg-primary mx-h-full px-1 space-x-3 p-1 py-12">
+    <h1 *ngFor="let texto of titles.slice(0)" class="font-bold text-2xl text-center text-white shadow-text uppercase">
+      {{texto}}
+    </h1>
 
-    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-5 mr-5 px-5 space-x-3 space-y-1">
+    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-2 mr-2 px-5 md:space-x-1">
 
       <div class="grid grid-cols-1">
-        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
           <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
           </figure>
-          <div class="card-body mt-2">
+          <div class="card-body mt-2 text-white">
             <h2 class="card-title uppercase font-bold">{{ 'Programming languages' |
               translate }}</h2>
             <p class="text-sm">{{ 'language text' |
@@ -269,9 +267,9 @@
 
 
       <div class="grid grid-cols-1">
-        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
           <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
-          <div class="card-body mt-2">
+          <div class="card-body mt-2 text-white">
             <h2 class="card-title uppercase font-bold">{{ 'Database' |
               translate }}</h2>
             <p class="text-sm">{{ 'Database text' |
@@ -281,9 +279,9 @@
       </div>
 
       <div class="grid grid-cols-1">
-        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
           <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
-          <div class="card-body mt-2">
+          <div class="card-body mt-2 text-white">
             <h2 class="card-title uppercase font-bold">{{ 'Frameworks' |
               translate }}</h2>
             <p class="text-sm">{{ 'Framework text' |
@@ -293,10 +291,10 @@
       </div>
 
       <div class="grid grid-cols-1">
-        <div class="card card-compact h-72 rounded-md px-2 shadow-xl mt-2">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
           <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
               alt="Frameworks" /></figure>
-          <div class="card-body mt-2">
+          <div class="card-body mt-2 text-white">
             <h2 class="card-title uppercase font-bold">{{ 'Version manager' |
               translate }}</h2>
             <p class="text-sm">{{ 'Version text' |
@@ -305,5 +303,162 @@
           </div>
         </div>
       </div>
+
     </div>
-  </div>
+  </section>
+
+  <section class="h-96 bg-black flex flex-col justify-center service-container items-center">
+    <h1 class="font-bold text-lg shadow-text uppercase">
+      Servicios que puedo brindar
+    </h1>
+    <p class="text-center">
+      Como tecnólogo en desarrollo de software, tengo la capacidad de diseñar y construir sitios web, así como de diagramar y crear arquitecturas de software. Esto proporcionará una mayor visibilidad a tus negocios.
+    </p>
+    <span class="slogan font-bold">"Imagina. Construyo. Hago realidad tus ideas."</span>
+</section>
+
+
+  <section class="max-w-auto bg-primary mx-h-full px-1 space-x-3 p-1 py-12">
+    <h1 class="font-bold text-2xl text-center text-white shadow-text uppercase">
+      Servicios
+    </h1>
+
+    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-2 mr-2 px-5 md:space-x-1">
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
+          </figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Diseño web
+            </h2>
+            <p class="text-sm">{{ 'language text' |
+              translate }}</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Paiginas web personalizadas
+            </h2>
+            <p class="text-sm">{{ 'Database text' |
+              translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Arquitecturas monoliticas
+            </h2>
+            <p class="text-sm">{{ 'Framework text' |
+              translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
+              alt="Frameworks" /></figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Gestión y Administracion Base de datos
+            </h2>
+            <p class="text-sm">{{ 'Version text' |
+              translate }}</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="h-96 bg-black flex flex-col justify-center service-container items-center">
+    <h1 class="font-bold text-lg shadow-text uppercase">
+      Portafolio
+    </h1>
+    <p class="text-center">
+      Como tecnólogo en desarrollo de software, tengo la capacidad de diseñar y construir sitios web, así como de diagramar y crear arquitecturas de software. Esto proporcionará una mayor visibilidad a tus negocios.
+    </p>
+    <span class="slogan font-bold">"Imagina. Construyo. Hago realidad tus ideas."</span>
+</section>
+
+
+  <section class="max-w-auto bg-primary mx-h-full px-1 space-x-3 p-1 py-12">
+    <h1 class="font-bold text-2xl text-center text-white shadow-text uppercase">
+      Proyectos
+    </h1>
+
+    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-2 mr-2 px-5 md:space-x-1">
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
+          </figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Diseño web
+            </h2>
+            <p class="text-sm">{{ 'language text' |
+              translate }}</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Paiginas web personalizadas
+            </h2>
+            <p class="text-sm">{{ 'Database text' |
+              translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Arquitecturas monoliticas
+            </h2>
+            <p class="text-sm">{{ 'Framework text' |
+              translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1">
+        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
+          <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
+              alt="Frameworks" /></figure>
+          <div class="card-body mt-2 text-white">
+            <h2 class="card-title uppercase font-bold">
+              Gestión y Administracion Base de datos
+            </h2>
+            <p class="text-sm">{{ 'Version text' |
+              translate }}</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

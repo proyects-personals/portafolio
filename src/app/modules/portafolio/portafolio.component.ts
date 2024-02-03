@@ -63,6 +63,10 @@ export class PortafolioComponent implements OnInit {
     this.changeTheme(savedTheme);
   }
 
+  titles = [
+    "'Skill' | translate }}"
+  ];
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }

@@ -1,464 +1,393 @@
-<div class="fixed top-0 left-0 w-full h-20 z-50 bg-neutral grid grid-cols-3 gap-3 shadow-sm fixed shadow-white">
-  <div class="items-center flex items-center justify-start ml-5">
-    <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="text-lg font-semibold text-white">{{ 'contact' |
-      translate }}</button>
-  </div>
-  <div class="flex items-center justify-center">
-    <a href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
-      <i class="fa-brands fa-linkedin mx-2 text-white"></i>
-    </a>
-    <a href="https://www.instagram.com/steveen_cues/" target="_blank">
-      <i class="fa-brands fa-instagram mx-2 text-white"></i>
-    </a>
-    <a href="tu-enlace-a-Discord">
-      <i class="fa-brands fa-discord mx-2 text-white"></i>
-    </a>
-    <a href="https://github.com/hscordonez" target="_blank">
-      <i class="fa-brands fa-github mx-2 text-white"></i>
-    </a>
-  </div>
-  <div class="grid grid-cols-2 gap-2">
-    <div class="flex items-center justify-end">
-      <button (click)="toggleTheme()">
-        <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
-      </button>
-    </div>
+<body class="bg-white font-family-karla">
 
-    <div class="flex items-center">
-      <button (click)="toggleLanguageDropdown()">
-        <i class="fa-solid fa-language cursor-pointer text-white"></i>
-      </button>
-      <ul *ngIf="languageDropdownOpen" class="absolute h-12 text-center w-16 mt-20 bg-dark shadow-md rounded">
-        <li class="cursor-pointer hover:bg-secondary text-white"
-          (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
-        <li class="cursor-pointer hover:bg-secondary text-white"
-          (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
-      </ul>
-    </div>
-  </div>
+<!-- Top Bar Nav -->
+<nav class="w-full py-4 bg-neutral shadow fixed">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
-    <!-- modal del correo -->
-  <div *ngIf="isMenuOpenEmail"
-    [ngClass]="{'dropdown-content': showMenuDownEmail, 'dropdown-content-up': !showMenuDownEmail}" class="relative z-10"
-    aria-labelledby="modal-title" role="dialog" aria-modal="true">
-
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <div 
-          class="relative transform overflow-hidden rounded-lg bg-neutral text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-          <div class="bg-neutral flex justify-center items-center text-xl font-bold px-3 p-3">
-            <i class="fa-solid fa-envelope text-white text-4xl"></i>
-          </div>
-          <form [formGroup]="formGroup" action="javascript:void(0)" (submit)="send()"
-            class="bg-neutral px-8 pt-6 pb-8 mb-4">
-
-            <div class="mb-4">
-              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-               for="full-name">
-                {{ 'Full names' |
-                translate }}
-              </label>
-              <input formControlName="from_name"
-              class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                id="full-name" type="text" placeholder="{{ 'Full names' |
-                translate }}">
-            </div>
-
-            <div class="mb-4">
-              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="email">
-                {{ 'Email' |
-                translate }}
-              </label>
-              <input formControlName="from_email"
-              class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                id="email" type="text" placeholder="{{ 'Email' |
-                translate }}">
-            </div>
-
-            <div class="mb-4">
-              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="subject">
-                {{ 'Affair' |
-                translate }}
-              </label>
-              <input formControlName="subject"
-              class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                id="subject" type="text" placeholder="{{ 'Affair' |
-                translate }}">
-            </div>
-
-            <div class="mb-4">
-              <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="message">
-                {{ 'Message' |
-                translate }}
-              </label>
-              <textarea formControlName="message"
-                class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                id="message" type="text" placeholder="{{ 'Example message' |
-                translate }}">
-            </textarea>
-            </div>
-            <div class="px-4 py-3 h-full w-full sm:flex sm:flex-row-reverse sm:px-6 flex space-x-3">
-              <button type="button" (click)="cerrarModalEmail()" type="button"
-                class="ml-2 bg-red hover:bg-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                {{ 'Close' |
-                translate }}
-              </button>
-              <button 
-                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit">
-                {{ 'Send' |
-                translate }}
-              </button>
-            </div>
-          </form>
+        <nav>
+            <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                <li>
+                    <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
+                        translate }}</button>
+                </li>
+<!--                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>-->
+            </ul>
+        </nav>
+        <div class="text-lg text-white">
+            <a class="" href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a class="pl-6" href="https://www.instagram.com/steveen_cues/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="pl-6" href="https://github.com/hscordonez" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- modal de la informacion personal -->
-  <div *ngIf="isMenuOpen" [ngClass]="{'dropdown-content': showMenuDown, 'dropdown-content-up': !showMenuDown}"
-    class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-        <div
-          class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-          <div class="bg-neutral flex justify-center items-center text-xl font-bold">
-            <h1 class="text-white">Steveen Ordoñez</h1>
-          </div>
-          <div class="bg-neutral grid grid-cols-2 px-3 p-5">
-
-            <div class="image-container text-center flex items-center justify-center"
-              (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
-              <img *ngIf="mostrarPrimaria" class="h-52 w-64 primary-image" src="../../../assets/img/steveen.jpeg"
-                alt="">
-              <img *ngIf="mostrarSecundaria" class="h-52 w-64 secondary-image" src="../../../assets/img/steveen1.jpg"
-                alt="">
-              <p class="text-white"><span class="font-bold">{{ 'Hello friends' |
-                  translate }}</span>
-
+        <div class="flex items-center text-lg no-underline text-white pr-6">
+            <div class="pl-6">
+                <button (click)="toggleTheme()">
+                    <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+                </button>
             </div>
 
-
-
-            <div class="px-2">
-              <div class="text-white">
-                <span class="font-bold"> {{ 'Personal information' |
-                  translate }}</span>
-                <ul class="list-inside ml-4 text-sm">
-                  <li class="relative flex items-center">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <p class="text-white"><span class="font-bold ml-2">{{ 'Age' |
-                        translate }}:</span> 23</p>
-                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                  </li>
-                  <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <p class="text-white"><span class="font-bold ml-2">{{ 'Residence' |
-                        translate }}</span> Quito-Ecuador</p>
-                  </li>
+            <div class="pl-6">
+                <button (click)="toggleLanguageDropdown()">
+                    <i class="fa-solid fa-language cursor-pointer text-white"></i>
+                </button>
+                <ul *ngIf="languageDropdownOpen" class="absolute h-12 text-center w-16 mt-20 bg-dark shadow-md rounded">
+                    <li class="cursor-pointer hover:bg-secondary text-white"
+                        (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+                    <li class="cursor-pointer hover:bg-secondary text-white"
+                        (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
                 </ul>
-              </div>
-
-              <div class="text-white">
-                <span class="font-bold">{{ 'Academic training' |
-                  translate }}</span>
-                <ul class="list-inside ml-4 text-sm">
-                  <li class="relative flex items-center">
-                    <span class="inline-block fa-solid fa-circle"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <p class="ml-2"><span class="font-bold">Replica Montufar:</span> {{ 'Bachelor of Science' |
-                      translate }}<i class="fa-solid fa-check text-green ml-1"></i>
-                    <p>
-                    <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                  </li>
-                  <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <p class="ml-2"><a class="font-bold" target="_blank" href="https://yavirac.edu.ec/">Intituto
-                        Yavirac:</a> {{ 'Software Technology' |
-                      translate }}<i class="fa-solid fa-check text-green ml-1"></i></p>
-                    <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                  </li>
-                  <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <p class="ml-2"><a class="font-bold" target="_blank" href="https://unibe.edu.ec/">Universidad
-                        UNIBE:</a> {{ 'Software Engineering' |
-                      translate }}<i class="fa-solid fa-clock ml-1"></i></p>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="text-white">
-                <span class="font-bold">{{ 'Work experience' |
-                  translate }}</span>
-                <ul class="list-inside ml-4 text-sm">
-                  <li class="relative flex items-center">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <span class="ml-2">Monto Acrilica.</span>
-                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                  </li>
-                  <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                      style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                    <a class="ml-2" href="https://manticore-labs.com/" target="_blank">Manticore-labs.</a>
-                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                  </li>
-                  <li class="relative mt-3">
-                    <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
-                    <a class="ml-2" href="https://corporacionjetmind.com/" target="_blank">Corporación Jetmind.</a>
-                  </li>
-                </ul>
-              </div>
             </div>
-          </div>
-          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-            <button type="button" (click)="cerrarModal()"
-              class="mt-3 inline-flex w-full justify-center rounded-md bg-red hover:bg-error px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
-              {{ 'Close' |
-              translate }}</button>
-          </div>
+
         </div>
-      </div>
     </div>
-  </div>
+
+</nav>
+
+<!-- Text Header -->
+<header class="w-full container mx-auto portada-container">
+    <div class="flex flex-col items-center justify-center py-12">
+        <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl py-6" href="#">
+            {{ 'Briefcase' | translate }}
+        </a>
+        <p class="text-lg text-gray-600">
+            Steveen Ordoñez
+        </p>
+        <p class="text-lg text-gray-600">
+            {{ 'Software' | translate }}
+        </p>
+    </div>
+</header>
+
+<!-- Topic Nav -->
+<nav class="w-full py-4 border-t border-b bg-brand text-white" x-data="{ open: false }">
+    <div class="block sm:hidden">
+        <a
+                href="#"
+                class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+
+        >
+            Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+        </a>
+    </div>
+    <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+        <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Start' | translate }}</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Technologies' | translate }}</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Frameworks</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'My Projects' | translate }}</a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mx-auto flex flex-wrap py-6 bg-black">
+
+    <!-- Posts Section -->
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+
+        <article class="flex flex-col shadow my-4 border">
+            <!-- Article Image -->
+            <a class="">
+                <img src="./assets/img/Linguajes.png">
+            </a>
+            <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Technologies' | translate}}</a>
+                <a href="#" class="pb-6">{{ 'Technologies presentation' | translate}}</a>
+                <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="flex flex-col shadow my-4 border">
+            <!-- Article Image -->
+            <a>
+                <img src="./assets/img/frameworks.png">
+            </a>
+            <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">FRAMEWORKS</a>
+                <a href="#" class="pb-6">{{ 'Frameworks presentation' | translate}}</a>
+                <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="flex flex-col shadow my-4">
+            <!-- Article Image -->
+            <a>
+                <img src="./assets/img/proyectos.webp">
+            </a>
+            <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Projects' | translate}}</a>
+                <a href="#" class="pb-6">{{'Projects presentation' | translate}}</a>
+                <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+
+    </section>
+
+    <!-- Sidebar Section -->
+    <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+
+        <div class="w-full bg-neutral shadow flex flex-col my-4 p-6 text-white border">
+            <p class="text-xl font-semibold pb-5">{{ 'Learn more about me' | translate }}</p>
+            <p class="pb-2">{{ 'presentation' | translate }}</p>
+            <button id="toggleButton" (click)="toggleMenu()" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+                {{ 'See more' | translate }}
+            </button>
+        </div>
+
+        <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+            <p class="text-xl font-semibold pb-5">Instagram</p>
+            <div class="grid grid-cols-3 gap-3">
+                <img class="hover:opacity-75" src="./assets/img/steveen1.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen.jpeg">
+                <img class="hover:opacity-75" src="./assets/img/steveen5.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen6.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen4.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen7.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen3.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen2.jpg">
+                <img class="hover:opacity-75" src="./assets/img/steveen9.jpg">
+            </div>
+            <a href="https://www.instagram.com/steveen_cues/?hl=es-la" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+                <i class="fab fa-instagram mr-2"></i> Follow steveen_cues
+            </a>
+        </div>
+
+        <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+            <p class="text-xl font-semibold pb-5">{{'Education' | translate}}</p>
+            <div class="grid grid-cols-3 gap-3">
+                <img class="hover:opacity-75" src="./assets/img/montufar.png">
+                <img class="hover:opacity-75" src="./assets/img/yavirac.png">
+                <img class="hover:opacity-75" src="./assets/img/unibe.png">
+            </div>
+        </div>
+
+        <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+            <p class="text-xl font-semibold pb-5">{{'Work experiences' | translate}}</p>
+            <div class="grid grid-cols-3 gap-3">
+                <img class="hover:opacity-75" src="./assets/img/madjs.png">
+                <a href="https://manticore-labs.com/" target="_blank"><img class="hover:opacity-75"  src="./assets/img/maticore.png"></a>
+                <a href="https://corporacionjetmind.com/" target="_blank"><img class="hover:opacity-75" src="./assets/img/mind.png"></a>
+            </div>
+        </div>
+
+    </aside>
+
 </div>
 
-<main class="mt-20 bg-white-secondary">
-  <section class="h-96 bg-primary flex flex-col justify-center portada-container items-center">
-    <h1 class="font-bold text-4xl shadow-text uppercase">{{ 'Learn more about me' |
-      translate }}
-    </h1>
-    <button id="toggleButton" (click)="toggleMenu()"
-      class="btn bg-secondary text-center text-sm text-white rounded-lg h-12 w-40 uppercase">{{ 'See my information' |
-      translate }}
-    </button>
-  </section>
-
-  <section class="max-w-auto bg-primary mx-h-full px-1 space-x-3 p-1 py-12">
-    <h1 *ngFor="let texto of titles.slice(0)" class="font-bold text-2xl text-center text-white shadow-text uppercase">
-      {{texto}}
-    </h1>
-
-    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-2 mr-2 px-5 md:space-x-1">
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
-          </figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">{{ 'Programming languages' |
-              translate }}</h2>
-            <p class="text-sm">{{ 'language text' |
-              translate }}</p>
-          </div>
+<footer class="w-full border-t bg-black text-white pb-12">
+    <div class="w-full container mx-auto flex flex-col items-center">
+        <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+            <button id="toggleButton" (click)="toggleMenu()" class="uppercase px-3">
+                {{ 'About me' | translate }}
+            </button>
+            <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="uppercase px-3">{{ 'contact' | translate }}</button>
         </div>
-      </div>
-
-
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">{{ 'Database' |
-              translate }}</h2>
-            <p class="text-sm">{{ 'Database text' |
-              translate }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">{{ 'Frameworks' |
-              translate }}</h2>
-            <p class="text-sm">{{ 'Framework text' |
-              translate }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
-              alt="Frameworks" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">{{ 'Version manager' |
-              translate }}</h2>
-            <p class="text-sm">{{ 'Version text' |
-              translate }}</p>
-
-          </div>
-        </div>
-      </div>
-
+        <div class="pb-6">&copy; scues505@gmail.com</div>
     </div>
-  </section>
-
-  <section class="h-96 bg-black flex flex-col justify-center service-container items-center">
-    <h1 class="font-bold text-lg shadow-text uppercase">
-      Servicios que puedo brindar
-    </h1>
-    <p class="text-center">
-      Como tecnólogo en desarrollo de software, tengo la capacidad de diseñar y construir sitios web, así como de diagramar y crear arquitecturas de software. Esto proporcionará una mayor visibilidad a tus negocios.
-    </p>
-    <span class="slogan font-bold">"Imagina. Construyo. Hago realidad tus ideas."</span>
-</section>
+</footer>
 
 
-  <section class="max-w-auto bg-primary mx-h-full px-1 space-x-3 p-1 py-12">
-    <h1 class="font-bold text-2xl text-center text-white shadow-text uppercase">
-      Servicios
-    </h1>
 
-    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-2 mr-2 px-5 md:space-x-1">
+<!-- Main modal -->
+<div *ngIf="isMenuOpenEmail"
+     [ngClass]="{'dropdown-content': showMenuDownEmail, 'dropdown-content-up': !showMenuDownEmail}"
+     class="relative z-10"
+     aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
-          </figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Diseño web
-            </h2>
-            <p class="text-sm">{{ 'language text' |
-              translate }}</p>
-          </div>
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div
+                    class="relative transform overflow-hidden rounded-lg bg-neutral text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-neutral flex justify-center items-center text-xl font-bold px-3 p-3">
+                    <i class="fa-solid fa-envelope text-white text-4xl"></i>
+                </div>
+                <form [formGroup]="formGroup" action="javascript:void(0)" (submit)="send()"
+                      class="bg-neutral px-8 pt-6 pb-8 mb-4">
+
+                    <div class="mb-4">
+                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                               for="full-name">
+                            {{ 'Full names' |
+                            translate }}
+                        </label>
+                        <input formControlName="from_name"
+                               class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                               id="full-name" type="text" placeholder="{{ 'Full names' |
+                translate }}">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="email">
+                            {{ 'Email' |
+                            translate }}
+                        </label>
+                        <input formControlName="from_email"
+                               class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                               id="email" type="text" placeholder="{{ 'Email' |
+                translate }}">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="subject">
+                            {{ 'Affair' |
+                            translate }}
+                        </label>
+                        <input formControlName="subject"
+                               class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                               id="subject" type="text" placeholder="{{ 'Affair' |
+                translate }}">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="message">
+                            {{ 'Message' |
+                            translate }}
+                        </label>
+                        <textarea formControlName="message"
+                                  class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                  id="message" type="text" placeholder="{{ 'Example message' |
+                translate }}">
+            </textarea>
+                    </div>
+                    <div class="px-4 py-3 h-full w-full sm:flex sm:flex-row-reverse sm:px-6 flex space-x-3">
+                        <button type="button" (click)="cerrarModalEmail()" type="button"
+                                class="ml-2 bg-red hover:bg-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            {{ 'Close' |
+                            translate }}
+                        </button>
+                        <button
+                                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                type="submit">
+                            {{ 'Send' |
+                            translate }}
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-
-
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Paiginas web personalizadas
-            </h2>
-            <p class="text-sm">{{ 'Database text' |
-              translate }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Arquitecturas monoliticas
-            </h2>
-            <p class="text-sm">{{ 'Framework text' |
-              translate }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
-              alt="Frameworks" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Gestión y Administracion Base de datos
-            </h2>
-            <p class="text-sm">{{ 'Version text' |
-              translate }}</p>
-
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
+</div>
 
-  <section class="h-96 bg-black flex flex-col justify-center service-container items-center">
-    <h1 class="font-bold text-lg shadow-text uppercase">
-      Portafolio
-    </h1>
-    <p class="text-center">
-      Como tecnólogo en desarrollo de software, tengo la capacidad de diseñar y construir sitios web, así como de diagramar y crear arquitecturas de software. Esto proporcionará una mayor visibilidad a tus negocios.
-    </p>
-    <span class="slogan font-bold">"Imagina. Construyo. Hago realidad tus ideas."</span>
-</section>
+<!-- modal de la informacion personal -->
+<div *ngIf="isMenuOpen" [ngClass]="{'dropdown-content': showMenuDown, 'dropdown-content-up': !showMenuDown}"
+     class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-neutral flex justify-center items-center text-xl font-bold">
+                    <h1 class="text-white">Steveen Ordoñez</h1>
+                </div>
+                <div class="bg-neutral grid grid-cols-2 px-3 p-5">
+
+                    <div class="image-container text-center flex items-center justify-center"
+                         (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
+                        <img *ngIf="mostrarPrimaria" class="h-52 w-64 primary-image" src="../../../assets/img/steveen.jpeg"
+                             alt="">
+                        <img *ngIf="mostrarSecundaria" class="h-52 w-64 secondary-image" src="../../../assets/img/steveen1.jpg"
+                             alt="">
+                        <p class="text-white"><span class="font-bold">{{ 'Hello friends' |
+                            translate }}</span>
+
+                    </div>
 
 
-  <section class="max-w-auto bg-primary mx-h-full px-1 space-x-3 p-1 py-12">
-    <h1 class="font-bold text-2xl text-center text-white shadow-text uppercase">
-      Proyectos
-    </h1>
 
-    <div class="mt-10 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1 bg-primary ml-2 mr-2 px-5 md:space-x-1">
+                    <div class="px-2">
+                        <div class="text-white">
+                <span class="font-bold"> {{ 'Personal information' |
+                    translate }}</span>
+                            <ul class="list-inside ml-4 text-sm">
+                                <li class="relative flex items-center">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <p class="text-white"><span class="font-bold ml-2">{{ 'Age' |
+                                        translate }}:</span> 23</p>
+                                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                </li>
+                                <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <p class="text-white"><span class="font-bold ml-2">{{ 'Residence' |
+                                        translate }}</span> Quito-Ecuador</p>
+                                </li>
+                            </ul>
+                        </div>
 
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/Linguajes.png" alt="Lenjuages de Programación" />
-          </figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Diseño web
-            </h2>
-            <p class="text-sm">{{ 'language text' |
-              translate }}</p>
-          </div>
+                        <div class="text-white">
+                <span class="font-bold">{{ 'Academic training' |
+                    translate }}</span>
+                            <ul class="list-inside ml-4 text-sm">
+                                <li class="relative flex items-center">
+                    <span class="inline-block fa-solid fa-circle"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <p class="ml-2"><span class="font-bold">Replica Montufar:</span> {{ 'Bachelor of Science' |
+                                        translate }}<i class="fa-solid fa-check text-green ml-1"></i>
+                                    <p>
+                                    <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                </li>
+                                <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <p class="ml-2"><a class="font-bold" target="_blank" href="https://yavirac.edu.ec/">Intituto
+                                        Yavirac:</a> {{ 'Software Technology' |
+                                        translate }}<i class="fa-solid fa-check text-green ml-1"></i></p>
+                                    <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                </li>
+                                <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <p class="ml-2"><a class="font-bold" target="_blank" href="https://unibe.edu.ec/">Universidad
+                                        UNIBE:</a> {{ 'Software Engineering' |
+                                        translate }}<i class="fa-solid fa-clock ml-1"></i></p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="text-white">
+                <span class="font-bold">{{ 'Work experience' |
+                    translate }}</span>
+                            <ul class="list-inside ml-4 text-sm">
+                                <li class="relative flex items-center">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <span class="ml-2">Monto Acrilica.</span>
+                                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                </li>
+                                <li class="relative flex items-center mt-3">
+                    <span class="inline-block fa-solid fa-circle mt-3"
+                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                    <a class="ml-2" href="https://manticore-labs.com/" target="_blank">Manticore-labs.</a>
+                                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                </li>
+                                <li class="relative mt-3">
+                                    <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
+                                    <a class="ml-2" href="https://corporacionjetmind.com/" target="_blank">Corporación Jetmind.</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button type="button" (click)="cerrarModal()"
+                            class="mt-3 inline-flex w-full justify-center rounded-md bg-red hover:bg-error px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                        {{ 'Close' |
+                        translate }}</button>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/base.png" alt="Base de datos" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Paiginas web personalizadas
-            </h2>
-            <p class="text-sm">{{ 'Database text' |
-              translate }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="h-40 w-72" src="../../../assets/img/frameworks.png" alt="Frameworks" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Arquitecturas monoliticas
-            </h2>
-            <p class="text-sm">{{ 'Framework text' |
-              translate }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1">
-        <div class="card card-compact h-80 rounded-md px-2 shadow-xl mt-2 bg-neutral">
-          <figure><img class="md:h-40 md:w-72 lg:h-40 lg:w-72 sm:h-32 h-32" src="../../../assets/img/versiones.png"
-              alt="Frameworks" /></figure>
-          <div class="card-body mt-2 text-white">
-            <h2 class="card-title uppercase font-bold">
-              Gestión y Administracion Base de datos
-            </h2>
-            <p class="text-sm">{{ 'Version text' |
-              translate }}</p>
-
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-</main>
-
+</div>
+</body>

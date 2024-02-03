@@ -1,1 +1,64 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.shadow-text {
+    text-shadow: 0 0 4px #000000!important;
+}
+
+.l-dark{
+    color:#D2D2D2;
+}
+
+.l-white{
+    color: #0a0a0a;
+}
+
+.l-primary{
+color: #F0F0F0;
+}
+
+.l-secundary{
+    color: darkblue;
+}
+
+.l-brand{
+    color:#F3F3F3 ;
+}
+
+.l-red{
+    color: #ffffff;
+}
+
+
+
+/* thema oscuro */
+
+
+.d-dark{
+    color:#000000;
+}
+
+.d-white{
+    color: #ffffff;
+}
+
+.d-primary{
+color: #050b14;
+}
+
+.d-secundary{
+    color: tomato;
+}
+
+.d-brand{
+    color:#4A4A4A ;
+}
+
+.d-red{
+    color: #560000;
+}

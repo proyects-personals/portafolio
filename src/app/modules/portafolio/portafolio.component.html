@@ -1,4 +1,4 @@
-<body class="bg-white font-family-karla">
+<body class="bg-black font-family-karla">
 
 <!-- Top Bar Nav -->
 <nav class="w-full py-4 bg-neutral shadow fixed">
@@ -10,7 +10,6 @@
                     <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
                         translate }}</button>
                 </li>
-<!--                <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>-->
             </ul>
         </nav>
         <div class="text-lg text-white">
@@ -32,17 +31,6 @@
                 </button>
             </div>
 
-<!--            <div class="pl-6">-->
-<!--                <button (click)="toggleLanguageDropdown()">-->
-<!--                    <i class="fa-solid fa-language cursor-pointer text-white"></i>-->
-<!--                </button>-->
-<!--                <ul *ngIf="languageDropdownOpen" class="absolute h-12 text-center w-16 mt-20 bg-dark shadow-md rounded">-->
-<!--                    <li class="cursor-pointer hover:bg-secondary text-white"-->
-<!--                        (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>-->
-<!--                    <li class="cursor-pointer hover:bg-secondary text-white"-->
-<!--                        (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>-->
-<!--                </ul>-->
-<!--            </div>-->
 
 
             <div class="flex">
@@ -57,17 +45,6 @@
                     <li class="cursor-pointer hover:bg-secondary text-white"
                         (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
                 </ul>
-<!--                <label  class="sr-only"><i class="fa-solid fa-language cursor-pointer text-white"></i></label>-->
-<!--                <select  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-e-lg border-s-gray-100 dark:border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">-->
-<!--&lt;!&ndash;                    <option selected>Choose a state</option>&ndash;&gt;-->
-<!--                    <option value="CA">California</option>-->
-<!--                    <option value="TX">Texas</option>-->
-<!--                    <option value="WH">Washinghton</option>-->
-<!--                    <option value="FL">Florida</option>-->
-<!--                    <option value="VG">Virginia</option>-->
-<!--                    <option value="GE">Georgia</option>-->
-<!--                    <option value="MI">Michigan</option>-->
-<!--                </select>-->
             </div>
 
 
@@ -77,7 +54,7 @@
 </nav>
 
 <!-- Text Header -->
-<header class="w-full container mx-auto portada-container">
+<header class="w-full  portada-container">
     <div class="flex flex-col items-center justify-center py-12">
         <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl py-6" href="#">
             {{ 'Briefcase' | translate }}
@@ -181,7 +158,7 @@
                 <img class="hover:opacity-75" src="./assets/img/steveen2.jpg">
                 <img class="hover:opacity-75" src="./assets/img/steveen9.jpg">
             </div>
-            <a href="https://www.instagram.com/steveen_cues/?hl=es-la" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+            <a href="https://www.instagram.com/steveen_cues/?hl=es-la" target="_blank" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
                 <i class="fab fa-instagram mr-2"></i> Follow steveen_cues
             </a>
         </div>

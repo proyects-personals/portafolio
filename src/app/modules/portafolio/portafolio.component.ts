@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import emailjs from '@emailjs/browser'
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-portafolio',
@@ -37,11 +37,35 @@ export class PortafolioComponent implements OnInit {
 
   initForm() {
     this.formGroup = this.fb.group({
-      from_name:'',
+      from_name:[
+        '',
+        {
+          validators: [
+            Validators.required,
+            Validators.minLength(2)
+          ]
+        }
+      ],
       to_name:'Admin',
-      from_email:'',
-      subject:'',
-      message:'',
+      from_email:['', [Validators.required, Validators.email]],
+      subject:[
+        '',
+        {
+          validators: [
+            Validators.required,
+            Validators.minLength(2)
+          ]
+        }
+      ],
+      message:[
+        '',
+        {
+          validators: [
+            Validators.required,
+            Validators.minLength(2)
+          ]
+        }
+      ],
     })
   }
 
@@ -59,7 +83,7 @@ export class PortafolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     this.changeTheme(savedTheme);
   }
 

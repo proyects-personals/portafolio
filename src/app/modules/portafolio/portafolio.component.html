@@ -1,397 +1,377 @@
 <body class="bg-black font-family-karla">
 
-<!-- Top Bar Nav -->
-<nav class="w-full py-4 bg-neutral shadow fixed">
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-neutral shadow fixed">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
-        <nav>
-            <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                <li>
-                    <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
+            <nav>
+                <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                    <li>
+                        <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
                         translate }}</button>
-                </li>
-            </ul>
-        </nav>
-        <div class="text-lg text-white">
-            <a class="" href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a class="pl-6" href="https://www.instagram.com/steveen_cues/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a class="pl-6" href="https://github.com/hscordonez" target="_blank">
-                <i class="fa-brands fa-github"></i>
-            </a>
-        </div>
-
-        <div class="flex items-center text-lg no-underline text-white pr-6">
-            <div class="pl-6">
-                <button (click)="toggleTheme()">
-                    <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
-                </button>
+                    </li>
+                </ul>
+            </nav>
+            <div class="text-lg text-white">
+                <a class="" href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a class="pl-6" href="https://www.instagram.com/steveen_cues/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="pl-6" href="https://github.com/hscordonez" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
             </div>
 
+            <div class="flex items-center text-lg no-underline text-white pr-6">
+                <div class="pl-6">
+                    <button (click)="toggleTheme()">
+                    <i class="text-white" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+                </button>
+                </div>
 
 
-            <div class="flex">
-                <button (click)="toggleLanguageDropdown()" data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-neutral">
+
+                <div class="flex">
+                    <button (click)="toggleLanguageDropdown()" data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-neutral">
                     Idioma <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
                 </button>
-                <ul *ngIf="languageDropdownOpen" class="mt-10 px-2 w-24 absolute bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-e-lg border-s-gray-100 dark:border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <li class="cursor-pointer hover:bg-secondary text-white"
-                        (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
-                    <li class="cursor-pointer hover:bg-secondary text-white"
-                        (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
-                </ul>
+                    <ul *ngIf="languageDropdownOpen" class="mt-10 px-2 w-24 absolute bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-e-lg border-s-gray-100 dark:border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <li class="cursor-pointer hover:bg-secondary text-white" (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+                        <li class="cursor-pointer hover:bg-secondary text-white" (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
+                    </ul>
+                </div>
+
+
             </div>
-
-
         </div>
-    </div>
 
-</nav>
+    </nav>
 
-<!-- Text Header -->
-<header class="w-full  portada-container">
-    <div class="flex flex-col items-center justify-center py-12">
-        <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl py-6" href="#">
+    <!-- Text Header -->
+    <header class="w-full  portada-container">
+        <div class="flex flex-col items-center justify-center py-12">
+            <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl py-6" href="#">
             {{ 'Briefcase' | translate }}
         </a>
-        <p class="text-lg text-gray-600">
-            Steveen Ordoñez
-        </p>
-        <p class="text-lg text-gray-600">
-            {{ 'Software' | translate }}
-        </p>
-    </div>
-</header>
+            <p class="text-lg text-gray-600">
+                Steveen Ordoñez
+            </p>
+            <p class="text-lg text-gray-600">
+                {{ 'Software' | translate }}
+            </p>
+        </div>
+    </header>
 
-<!-- Topic Nav -->
-<nav class="w-full py-4 border-t border-b bg-brand text-white" x-data="{ open: false }">
-    <div class="block sm:hidden">
-        <a
-                href="#"
-                class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-
-        >
+    <!-- Topic Nav -->
+    <nav class="w-full py-4 border-t border-b bg-brand text-white" x-data="{ open: false }">
+        <div class="block sm:hidden">
+            <a href="#" class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center">
             Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
         </a>
-    </div>
-    <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-        <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Start' | translate }}</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Technologies' | translate }}</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Frameworks</a>
-            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'My Projects' | translate }}</a>
         </div>
-    </div>
-</nav>
-
-
-<div class="container mx-auto flex flex-wrap py-6 bg-black">
-
-    <!-- Posts Section -->
-    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-
-        <article class="flex flex-col shadow my-4 border">
-            <!-- Article Image -->
-            <a class="">
-                <img src="./assets/img/Linguajes.png">
-            </a>
-            <div class="bg-neutral text-white flex flex-col justify-start p-6">
-                <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Technologies' | translate}}</a>
-                <a href="#" class="pb-6">{{ 'Technologies presentation' | translate}}</a>
-                <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+        <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+            <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Start' | translate }}</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Technologies' | translate }}</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Frameworks</a>
+                <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'My Projects' | translate }}</a>
             </div>
-        </article>
-
-        <article class="flex flex-col shadow my-4 border">
-            <!-- Article Image -->
-            <a>
-                <img src="./assets/img/frameworks.png">
-            </a>
-            <div class="bg-neutral text-white flex flex-col justify-start p-6">
-                <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">FRAMEWORKS</a>
-                <a href="#" class="pb-6">{{ 'Frameworks presentation' | translate}}</a>
-                <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </article>
-
-        <article class="flex flex-col shadow my-4">
-            <!-- Article Image -->
-            <a>
-                <img src="./assets/img/proyectos.webp">
-            </a>
-            <div class="bg-neutral text-white flex flex-col justify-start p-6">
-                <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Projects' | translate}}</a>
-                <a href="#" class="pb-6">{{'Projects presentation' | translate}}</a>
-                <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </article>
+        </div>
+    </nav>
 
 
-    </section>
+    <div class="container mx-auto flex flex-wrap py-6 bg-black">
 
-    <!-- Sidebar Section -->
-    <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+        <!-- Posts Section -->
+        <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
-        <div class="w-full bg-neutral shadow flex flex-col my-4 p-6 text-white border">
-            <p class="text-xl font-semibold pb-5">{{ 'Learn more about me' | translate }}</p>
-            <p class="pb-2">{{ 'presentation' | translate }}</p>
-            <button id="toggleButton" (click)="toggleMenu()" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+            <article class="flex flex-col shadow my-4 border">
+                <!-- Article Image -->
+                <a class="">
+                    <img src="./assets/img/Linguajes.png">
+                </a>
+                <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Technologies' | translate}}</a>
+                    <a href="#" class="pb-6">{{ 'Technologies presentation' | translate}}</a>
+                    <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="flex flex-col shadow my-4 border">
+                <!-- Article Image -->
+                <a>
+                    <img src="./assets/img/frameworks.png">
+                </a>
+                <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">FRAMEWORKS</a>
+                    <a href="#" class="pb-6">{{ 'Frameworks presentation' | translate}}</a>
+                    <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="flex flex-col shadow my-4">
+                <!-- Article Image -->
+                <a>
+                    <img src="./assets/img/proyectos.webp">
+                </a>
+                <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                    <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Projects' | translate}}</a>
+                    <a href="#" class="pb-6">{{'Projects presentation' | translate}}</a>
+                    <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+
+        </section>
+
+        <!-- Sidebar Section -->
+        <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+
+            <div class="w-full bg-neutral shadow flex flex-col my-4 p-6 text-white border">
+                <p class="text-xl font-semibold pb-5">{{ 'Learn more about me' | translate }}</p>
+                <p class="pb-2">{{ 'presentation' | translate }}</p>
+                <button id="toggleButton" (click)="toggleMenu()" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
                 {{ 'See more' | translate }}
             </button>
-        </div>
-
-        <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
-            <p class="text-xl font-semibold pb-5">Instagram</p>
-            <div class="grid grid-cols-3 gap-3">
-                <img class="hover:opacity-75" src="./assets/img/steveen1.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen.jpeg">
-                <img class="hover:opacity-75" src="./assets/img/steveen5.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen6.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen4.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen7.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen3.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen2.jpg">
-                <img class="hover:opacity-75" src="./assets/img/steveen9.jpg">
             </div>
-            <a href="https://www.instagram.com/steveen_cues/?hl=es-la" target="_blank" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
-                <i class="fab fa-instagram mr-2"></i> Follow steveen_cues
-            </a>
-        </div>
 
-        <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
-            <p class="text-xl font-semibold pb-5">{{'Education' | translate}}</p>
-            <div class="grid grid-cols-3 gap-3">
-                <img class="hover:opacity-75" src="./assets/img/montufar.png">
-                <img class="hover:opacity-75" src="./assets/img/yavirac.png">
-                <img class="hover:opacity-75" src="./assets/img/unibe.png">
+            <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+                <p class="text-xl font-semibold pb-5">Instagram</p>
+                <div class="grid grid-cols-3 gap-3">
+                    <img class="hover:opacity-75" src="./assets/img/steveen1.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen.jpeg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen5.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen6.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen4.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen7.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen3.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen2.jpg">
+                    <img class="hover:opacity-75" src="./assets/img/steveen9.jpg">
+                </div>
+                <a href="https://www.instagram.com/steveen_cues/?hl=es-la" target="_blank" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+                    <i class="fab fa-instagram mr-2"></i> Follow steveen_cues
+                </a>
             </div>
-        </div>
 
-        <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
-            <p class="text-xl font-semibold pb-5">{{'Work experiences' | translate}}</p>
-            <div class="grid grid-cols-3 gap-3">
-                <img class="hover:opacity-75" src="./assets/img/madjs.png">
-                <a href="https://manticore-labs.com/" target="_blank"><img class="hover:opacity-75"  src="./assets/img/maticore.png"></a>
-                <a href="https://corporacionjetmind.com/" target="_blank"><img class="hover:opacity-75" src="./assets/img/mind.png"></a>
+            <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+                <p class="text-xl font-semibold pb-5">{{'Education' | translate}}</p>
+                <div class="grid grid-cols-3 gap-3">
+                    <img class="hover:opacity-75" src="./assets/img/montufar.png">
+                    <img class="hover:opacity-75" src="./assets/img/yavirac.png">
+                    <img class="hover:opacity-75" src="./assets/img/unibe.png">
+                </div>
             </div>
-        </div>
 
-    </aside>
+            <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+                <p class="text-xl font-semibold pb-5">{{'Work experiences' | translate}}</p>
+                <div class="grid grid-cols-3 gap-3">
+                    <img class="hover:opacity-75" src="./assets/img/madjs.png">
+                    <a href="https://manticore-labs.com/" target="_blank"><img class="hover:opacity-75" src="./assets/img/maticore.png"></a>
+                    <a href="https://corporacionjetmind.com/" target="_blank"><img class="hover:opacity-75" src="./assets/img/mind.png"></a>
+                </div>
+            </div>
 
-</div>
+        </aside>
 
-<footer class="w-full border-t bg-black text-white pb-12">
-    <div class="w-full container mx-auto flex flex-col items-center">
-        <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-            <button id="toggleButton" (click)="toggleMenu()" class="uppercase px-3">
+    </div>
+
+    <footer class="w-full border-t bg-black text-white pb-12">
+        <div class="w-full container mx-auto flex flex-col items-center">
+            <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+                <button id="toggleButton" (click)="toggleMenu()" class="uppercase px-3">
                 {{ 'About me' | translate }}
             </button>
-            <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="uppercase px-3">{{ 'contact' | translate }}</button>
+                <button id="toggleButtonEmail" (click)="toggleMenuEmail()" class="uppercase px-3">{{ 'contact' | translate }}</button>
+            </div>
+            <div class="pb-6">&copy; scues505@gmail.com</div>
         </div>
-        <div class="pb-6">&copy; scues505@gmail.com</div>
-    </div>
-</footer>
+    </footer>
 
 
 
-<!-- Main modal -->
-<div *ngIf="isMenuOpenEmail"
-     [ngClass]="{'dropdown-content': showMenuDownEmail, 'dropdown-content-up': !showMenuDownEmail}"
-     class="relative z-10"
-     aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!-- Main modal -->
+    <div *ngIf="isMenuOpenEmail" [ngClass]="{'dropdown-content': showMenuDownEmail, 'dropdown-content-up': !showMenuDownEmail}" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div
-                    class="relative transform overflow-hidden rounded-lg bg-neutral text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div class="bg-neutral flex justify-center items-center text-xl font-bold px-3 p-3">
-                    <i class="fa-solid fa-envelope text-white text-4xl"></i>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-neutral text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="bg-neutral flex justify-center items-center text-xl font-bold px-3 p-3">
+                        <i class="fa-solid fa-envelope text-white text-4xl"></i>
+                    </div>
+                    <form [formGroup]="formGroup" (submit)="send()" class="bg-neutral px-8 pt-6 pb-8 mb-4">
+                        <!-- Full Name Field -->
+                        <div class="mb-4">
+                            <label for="full-name" class="text-sm text-white">{{ 'Full names' | translate }}</label>
+                            <input formControlName="from_name" id="full-name" type="text" placeholder="{{ 'Full names' | translate }}">
+                            <!-- Display error message if the field is touched and invalid -->
+                            <div *ngIf="formGroup.get('from_name')?.invalid && (formGroup.get('from_name')?.dirty || formGroup.get('from_name')?.touched)" class="text-red-500 text-xs mt-1">
+                                <div *ngIf="formGroup.get('from_name')?.errors?.['required']">
+                                    {{ 'Full name is required' | translate }}
+                                </div>
+                                <div *ngIf="formGroup.get('from_name')?.errors?.['minlength']">
+                                    {{ 'Full name must be at least 2 characters' | translate }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="mb-4">
+                            <label for="email" class="text-sm text-white">{{ 'Email' | translate }}</label>
+                            <input formControlName="from_email" id="email" type="email" placeholder="{{ 'Email' | translate }}">
+                            <!-- Display error message if the field is touched and invalid -->
+                            <div *ngIf="formGroup.get('from_email')?.invalid && (formGroup.get('from_email')?.dirty || formGroup.get('from_email')?.touched)" class="text-red-500 text-xs mt-1">
+                                <div *ngIf="formGroup.get('from_email')?.errors?.['required']">
+                                    {{ 'Email is required' | translate }}
+                                </div>
+                                <div *ngIf="formGroup.get('from_email')?.errors?.['email']">
+                                    {{ 'Invalid email format' | translate }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subject Field -->
+                        <div class="mb-4">
+                            <label for="subject" class="text-sm text-white">{{ 'Affair' | translate }}</label>
+                            <input formControlName="subject" id="subject" type="text" placeholder="{{ 'Affair' | translate }}">
+                            <!-- Display error message if the field is touched and invalid -->
+                            <div *ngIf="formGroup.get('subject')?.invalid && (formGroup.get('subject')?.dirty || formGroup.get('subject')?.touched)" class="text-red-500 text-xs mt-1">
+                                <div *ngIf="formGroup.get('subject')?.errors?.['required']">
+                                    {{ 'Subject is required' | translate }}
+                                </div>
+                                <div *ngIf="formGroup.get('subject')?.errors?.['minlength']">
+                                    {{ 'Subject must be at least 2 characters' | translate }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div class="mb-4">
+                            <label for="message" class="text-sm text-white">{{ 'Message' | translate }}</label>
+                            <textarea formControlName="message" id="message" placeholder="{{ 'Example message' | translate }}"></textarea>
+                            <!-- Display error message if the field is touched and invalid -->
+                            <div *ngIf="formGroup.get('message')?.invalid && (formGroup.get('message')?.dirty || formGroup.get('message')?.touched)" class="text-red-500 text-xs mt-1">
+                                <div *ngIf="formGroup.get('message')?.errors?.['required']">
+                                    {{ 'Message is required' | translate }}
+                                </div>
+                                <div *ngIf="formGroup.get('message')?.errors?.['minlength']">
+                                    {{ 'Message must be at least 2 characters' | translate }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Buttons -->
+                        <div class="px-4 py-3 h-full w-full sm:flex sm:flex-row-reverse sm:px-6 flex space-x-3">
+                            <button type="button" (click)="cerrarModalEmail()" class="bg-red hover:bg-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">{{ 'Close' | translate }}</button>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">{{ 'Send' | translate }}</button>
+                        </div>
+                    </form>
+
                 </div>
-                <form [formGroup]="formGroup" action="javascript:void(0)" (submit)="send()"
-                      class="bg-neutral px-8 pt-6 pb-8 mb-4">
-
-                    <div class="mb-4">
-                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                               for="full-name">
-                            {{ 'Full names' |
-                            translate }}
-                        </label>
-                        <input formControlName="from_name"
-                               class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                               id="full-name" type="text" placeholder="{{ 'Full names' |
-                translate }}">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="email">
-                            {{ 'Email' |
-                            translate }}
-                        </label>
-                        <input formControlName="from_email"
-                               class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                               id="email" type="text" placeholder="{{ 'Email' |
-                translate }}">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="subject">
-                            {{ 'Affair' |
-                            translate }}
-                        </label>
-                        <input formControlName="subject"
-                               class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                               id="subject" type="text" placeholder="{{ 'Affair' |
-                translate }}">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="peer-focus:font-medium absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" for="message">
-                            {{ 'Message' |
-                            translate }}
-                        </label>
-                        <textarea formControlName="message"
-                                  class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                  id="message" type="text" placeholder="{{ 'Example message' |
-                translate }}">
-            </textarea>
-                    </div>
-                    <div class="px-4 py-3 h-full w-full sm:flex sm:flex-row-reverse sm:px-6 flex space-x-3">
-                        <button type="button" (click)="cerrarModalEmail()" type="button"
-                                class="ml-2 bg-red hover:bg-error text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            {{ 'Close' |
-                            translate }}
-                        </button>
-                        <button
-                                class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="submit">
-                            {{ 'Send' |
-                            translate }}
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
-</div>
 
-<!-- modal de la informacion personal -->
-<div *ngIf="isMenuOpen" [ngClass]="{'dropdown-content': showMenuDown, 'dropdown-content-up': !showMenuDown}"
-     class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!-- modal de la informacion personal -->
+    <div *ngIf="isMenuOpen" [ngClass]="{'dropdown-content': showMenuDown, 'dropdown-content-up': !showMenuDown}" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div
-                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div class="bg-neutral flex justify-center items-center text-xl font-bold">
-                    <h1 class="text-white">Steveen Ordoñez</h1>
-                </div>
-                <div class="bg-neutral grid grid-cols-2 px-3 p-5">
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="bg-neutral flex justify-center items-center text-xl font-bold">
+                        <h1 class="text-white">Steveen Ordoñez</h1>
+                    </div>
+                    <div class="bg-neutral grid grid-cols-2 px-3 p-5">
 
-                    <div class="image-container text-center flex items-center justify-center"
-                         (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
-                        <img *ngIf="mostrarPrimaria" class="h-52 w-64 primary-image" src="../../../assets/img/steveen.jpeg"
-                             alt="">
-                        <img *ngIf="mostrarSecundaria" class="h-52 w-64 secondary-image" src="../../../assets/img/steveen1.jpg"
-                             alt="">
-                        <p class="text-white"><span class="font-bold">{{ 'Hello friends' |
+                        <div class="image-container text-center flex items-center justify-center" (mouseover)="mostrarImagenSecundaria()" (mouseout)="ocultarImagenSecundaria()">
+                            <img *ngIf="mostrarPrimaria" class="h-52 w-64 primary-image" src="../../../assets/img/steveen.jpeg" alt="">
+                            <img *ngIf="mostrarSecundaria" class="h-52 w-64 secondary-image" src="../../../assets/img/steveen1.jpg" alt="">
+                            <p class="text-white"><span class="font-bold">{{ 'Hello friends' |
                             translate }}</span>
 
-                    </div>
+                        </div>
 
 
 
-                    <div class="px-2">
-                        <div class="text-white">
-                <span class="font-bold"> {{ 'Personal information' |
+                        <div class="px-2">
+                            <div class="text-white">
+                                <span class="font-bold"> {{ 'Personal information' |
                     translate }}</span>
-                            <ul class="list-inside ml-4 text-sm">
-                                <li class="relative flex items-center">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <p class="text-white"><span class="font-bold ml-2">{{ 'Age' |
+                                <ul class="list-inside ml-4 text-sm">
+                                    <li class="relative flex items-center">
+                                        <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <p class="text-white"><span class="font-bold ml-2">{{ 'Age' |
                                         translate }}:</span> 23</p>
-                                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                                </li>
-                                <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <p class="text-white"><span class="font-bold ml-2">{{ 'Residence' |
+                                        <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                    </li>
+                                    <li class="relative flex items-center mt-3">
+                                        <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <p class="text-white"><span class="font-bold ml-2">{{ 'Residence' |
                                         translate }}</span> Quito-Ecuador</p>
-                                </li>
-                            </ul>
-                        </div>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <div class="text-white">
-                <span class="font-bold">{{ 'Academic training' |
+                            <div class="text-white">
+                                <span class="font-bold">{{ 'Academic training' |
                     translate }}</span>
-                            <ul class="list-inside ml-4 text-sm">
-                                <li class="relative flex items-center">
-                    <span class="inline-block fa-solid fa-circle"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <p class="ml-2"><span class="font-bold">Replica Montufar:</span> {{ 'Bachelor of Science' |
-                                        translate }}<i class="fa-solid fa-check text-green ml-1"></i>
-                                    <p>
-                                    <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                                </li>
-                                <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <p class="ml-2"><a class="font-bold" target="_blank" href="https://yavirac.edu.ec/">Intituto
-                                        Yavirac:</a> {{ 'Software Technology' |
-                                        translate }}<i class="fa-solid fa-check text-green ml-1"></i></p>
-                                    <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                                </li>
-                                <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <p class="ml-2"><a class="font-bold" target="_blank" href="https://unibe.edu.ec/">Universidad
-                                        UNIBE:</a> {{ 'Software Engineering' |
-                                        translate }}<i class="fa-solid fa-clock ml-1"></i></p>
-                                </li>
-                            </ul>
-                        </div>
+                                <ul class="list-inside ml-4 text-sm">
+                                    <li class="relative flex items-center">
+                                        <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <p class="ml-2"><span class="font-bold">Replica Montufar:</span> {{ 'Bachelor of Science' | translate }}<i class="fa-solid fa-check text-green ml-1"></i>
+                                            <p>
+                                                <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                    </li>
+                                    <li class="relative flex items-center mt-3">
+                                        <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <p class="ml-2"><a class="font-bold" target="_blank" href="https://yavirac.edu.ec/">Intituto
+                                        Yavirac:</a> {{ 'Software Technology' | translate }}<i class="fa-solid fa-check text-green ml-1"></i></p>
+                                        <div class="absolute h-8 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                    </li>
+                                    <li class="relative flex items-center mt-3">
+                                        <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <p class="ml-2"><a class="font-bold" target="_blank" href="https://unibe.edu.ec/">Universidad
+                                        UNIBE:</a> {{ 'Software Engineering' | translate }}<i class="fa-solid fa-clock ml-1"></i></p>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <div class="text-white">
-                <span class="font-bold">{{ 'Work experience' |
+                            <div class="text-white">
+                                <span class="font-bold">{{ 'Work experience' |
                     translate }}</span>
-                            <ul class="list-inside ml-4 text-sm">
-                                <li class="relative flex items-center">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <span class="ml-2">Monto Acrilica.</span>
-                                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                                </li>
-                                <li class="relative flex items-center mt-3">
-                    <span class="inline-block fa-solid fa-circle mt-3"
-                          style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                    <a class="ml-2" href="https://manticore-labs.com/" target="_blank">Manticore-labs.</a>
-                                    <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
-                                </li>
-                                <li class="relative mt-3">
-                                    <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
-                                    <a class="ml-2" href="https://corporacionjetmind.com/" target="_blank">Corporación Jetmind.</a>
-                                </li>
-                            </ul>
+                                <ul class="list-inside ml-4 text-sm">
+                                    <li class="relative flex items-center">
+                                        <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <span class="ml-2">Monto Acrilica.</span>
+                                        <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                    </li>
+                                    <li class="relative flex items-center mt-3">
+                                        <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
+                                        <a class="ml-2" href="https://manticore-labs.com/" target="_blank">Manticore-labs.</a>
+                                        <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
+                                    </li>
+                                    <li class="relative mt-3">
+                                        <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
+                                        <a class="ml-2" href="https://corporacionjetmind.com/" target="_blank">Corporación Jetmind.</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button type="button" (click)="cerrarModal()"
-                            class="mt-3 inline-flex w-full justify-center rounded-md bg-red hover:bg-error px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" (click)="cerrarModal()" class="mt-3 inline-flex w-full justify-center rounded-md bg-red hover:bg-error px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
                         {{ 'Close' |
                         translate }}</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </body>

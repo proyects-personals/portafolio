@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ModulesRoutingModule } from './modules-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PortafolioComponent } from './portafolio/portafolio.component';
+import { ComponentsModule } from '../components/components.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,6 +22,7 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     ModulesRoutingModule,
+    ComponentsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

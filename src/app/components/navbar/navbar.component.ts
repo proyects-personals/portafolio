@@ -26,48 +26,60 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Verificar si hay un tema guardado en localStorage al inicio
     const savedTheme = localStorage.getItem('theme');
-    console.log(savedTheme);
-    if(savedTheme != null) {
+    if (savedTheme != null) {
       this.themeService.setTheme(savedTheme);
     }
-    
-    // Suscribirse al Observable del tema para recibir actualizaciones
     this.themeService.theme$.subscribe(theme => {
       this.setTheme(theme);
     });
   }
 
   toggleTheme() {
-    // Obtener el tema actual del servicio ThemeService
     const currentTheme = this.themeService.getCurrentTheme();
 
-    // Determinar el tema opuesto
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    // Establecer el tema en el servicio y actualizar el icono
+
     this.themeService.setTheme(newTheme);
     this.setTheme(newTheme);
-}
+  }
 
-private setTheme(theme: string) {
-    this.themes = theme; // Actualizar la variable de clase 'themes'
+  private setTheme(theme: string) {
+    this.themes = theme;
 
-    // Actualizar el icono
     this.sunMoonIcon = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
 
-    // Aplicar el tema al cuerpo del documento
     this.el.nativeElement.dataset.theme = theme;
 
-    // Guardar el tema seleccionado en localStorage
     localStorage.setItem('theme', theme);
 
-    // Aplicar estilos adicionales según el tema
     if (theme === 'dark') {
       this.renderer.addClass(this.document.body, 'dark-theme');
     } else {
       this.renderer.removeClass(this.document.body, 'dark-theme');
     }
-}
+  }
+
+
+  cambiarIdioma(idioma: string) {
+    this._translate.use(idioma); // Cambiar el idioma
+  }
+
+  addLangs() {
+    this._translate.addLangs(["es", "en"]);
+  }
+
+  defaultLang() {
+    this._translate.setDefaultLang('es');
+  }
+
+  toggleLanguageDropdown() {
+    this.languageDropdownOpen = !this.languageDropdownOpen;
+  }
+
+  changeLanguage(language: string) {
+    this._translate.use(language);
+    this.languageDropdownOpen = false;
+  }
+  
 }

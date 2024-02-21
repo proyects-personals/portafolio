@@ -3,6 +3,7 @@ import { Component, ElementRef, HostListener, Inject, OnInit, Renderer2 } from '
 import { TranslateService } from '@ngx-translate/core';
 import emailjs from '@emailjs/browser'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ThemeService } from 'src/app/service/theme/theme.service';
 
 @Component({
   selector: 'app-portafolio',
@@ -28,7 +29,8 @@ export class PortafolioComponent implements OnInit {
     private el: ElementRef,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private themeService: ThemeService,
   ) {
     // this.addLangs();
     // this.defaultLang();
@@ -83,8 +85,13 @@ export class PortafolioComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    // const savedTheme = localStorage.getItem('theme') || 'dark';
-    //this.changeTheme(savedTheme);
+    this.themeService.theme$.subscribe(theme => {
+      this.changeTheme(theme);
+    });
+  }
+
+  private changeTheme(theme: string) {
+    this.el.nativeElement.dataset.theme = theme;
   }
 
   // titles = [

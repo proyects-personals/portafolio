@@ -1,14 +1,14 @@
-<nav class="w-full py-4 bg-neutral shadow fixed">
+<nav class="w-full bg-neutral py-2 ">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
-        <nav>
+        <div>
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                 <li>
                     <button id="toggleButtonEmail" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
                     translate }}</button>
                 </li>
             </ul>
-        </nav>
+        </div>
         <div class="text-lg text-white">
             <a class="" href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
@@ -27,20 +27,22 @@
                 <i class="text-white" [ngClass]="sunMoonIcon"></i>
             </button>
             </div>
-            <div class="flex">
+            <div class="flex " (click)="toggleLanguageDropdown()">
                 <button data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-neutral">
                 Idioma <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>
             </button>
-                <ul *ngIf="languageDropdownOpen" class="mt-10 px-2 w-24 absolute bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-e-lg border-s-gray-100 dark:border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <li class="cursor-pointer hover:bg-secondary text-white">English</li>
-                    <li class="cursor-pointer hover:bg-secondary text-white">Español</li>
+                <ul *ngIf="languageDropdownOpen" class="mt-10 px-2 w-auto absolute bg-primary border  text-sm rounded-e-lg w-full p-2.5 center ml-5">
+                    <li class="cursor-pointer hover:bg-secondary text-white" (click)="changeLanguage('en'); toggleLanguageDropdown()">English</li>
+                    <li class="cursor-pointer hover:bg-secondary text-white" (click)="changeLanguage('es'); toggleLanguageDropdown()">Español</li>
                 </ul>
+
             </div>
-
-
         </div>
     </div>
 
 </nav>
+
+
+<!-- <nav class="w-full container mx-auto"></nav> -->

@@ -10,7 +10,6 @@ import { ThemeService } from 'src/app/service/theme/theme.service';
 })
 export class NavbarComponent implements OnInit {
 
-
   isDarkMode: boolean = false;
   sunMoonIcon: string = 'fa-solid fa-moon';
   languageDropdownOpen: boolean = false;
@@ -22,47 +21,46 @@ export class NavbarComponent implements OnInit {
     private themeService: ThemeService,
     private el: ElementRef,
     private renderer: Renderer2,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.loadSavedTheme();
+    this.loadSavedLanguage();
+  }
+
+  loadSavedTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme != null) {
       this.themeService.setTheme(savedTheme);
+      this.setTheme(savedTheme);
     }
-    this.themeService.theme$.subscribe(theme => {
-      this.setTheme(theme);
-    });
+  }
+
+  loadSavedLanguage() {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage != null) {
+      this.changeLanguage(savedLanguage);
+    }
   }
 
   toggleTheme() {
     const currentTheme = this.themeService.getCurrentTheme();
-
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
     this.themeService.setTheme(newTheme);
     this.setTheme(newTheme);
   }
 
   private setTheme(theme: string) {
     this.themes = theme;
-
     this.sunMoonIcon = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-
     this.el.nativeElement.dataset.theme = theme;
-
     localStorage.setItem('theme', theme);
-
-    if (theme === 'dark') {
-      this.renderer.addClass(this.document.body, 'dark-theme');
-    } else {
-      this.renderer.removeClass(this.document.body, 'dark-theme');
-    }
+    theme === 'dark' ? this.renderer.addClass(this.document.body, 'dark-theme') : this.renderer.removeClass(this.document.body, 'dark-theme');
   }
 
-
   cambiarIdioma(idioma: string) {
-    this._translate.use(idioma); // Cambiar el idioma
+    this._translate.use(idioma);
+    localStorage.setItem('language', idioma);
   }
 
   addLangs() {
@@ -79,7 +77,7 @@ export class NavbarComponent implements OnInit {
 
   changeLanguage(language: string) {
     this._translate.use(language);
+    localStorage.setItem('language', language);
     this.languageDropdownOpen = false;
-  }
-  
+  }  
 }

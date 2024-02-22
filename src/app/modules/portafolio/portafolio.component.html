@@ -1,12 +1,147 @@
 <div class="bg-primary text-white">
     <div class="flex flex-col  sm:w-full md:w-full relative z-20">
-        <div class="h-16 w-full">
+        <div class="h-17 w-full">
             <app-navbar></app-navbar>
         </div>
-        <div class="flex-grow overflow-auto justify-center items-center ml-3 mr-3">
-            <div>{{ 'contact' | translate }}</div>
+
+        <div>
+
+            <div class="w-full  portada-container">
+                <div class="flex flex-col items-center justify-center py-12">
+                    <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl py-6" href="#">
+                        {{ 'Briefcase' | translate }}
+                    </a>
+                    <p class="font-bold text-gray-800 uppercase hover:text-gray-700 text-4xl py-1">
+                        Steveen Ordoñez
+                    </p>
+                    <p class="font-bold text-gray-800 uppercase hover:text-gray-700 text-3xl py-2">
+                        {{ 'Software' | translate }}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Topic Nav -->
+            <nav class="w-full py-4 border-t border-b bg-brand text-white" x-data="{ open: false }">
+                <div class="block sm:hidden">
+                    <a href="#" class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center">
+                        Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+                    </a>
+                </div>
+                <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+                    <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+                        <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Start' | translate }}</a>
+                        <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'Technologies' | translate
+                            }}</a>
+                        <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Frameworks</a>
+                        <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{ 'My Projects' | translate }}</a>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- pagina -->
+
+            <div class="container mx-auto flex flex-wrap py-6 bg-black">
+
+                <!-- Posts Section -->
+                <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+
+                    <article class="flex flex-col shadow my-4 border">
+                        <!-- Article Image -->
+                        <a class="">
+                            <img src="./assets/img/Linguajes.png">
+                        </a>
+                        <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Technologies' | translate}}</a>
+                            <a href="#" class="pb-6">{{ 'Technologies presentation' | translate}}</a>
+                            <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="flex flex-col shadow my-4 border">
+                        <!-- Article Image -->
+                        <a>
+                            <img src="./assets/img/frameworks.png">
+                        </a>
+                        <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">FRAMEWORKS</a>
+                            <a href="#" class="pb-6">{{ 'Frameworks presentation' | translate}}</a>
+                            <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="flex flex-col shadow my-4">
+                        <!-- Article Image -->
+                        <a>
+                            <img src="./assets/img/proyectos.webp">
+                        </a>
+                        <div class="bg-neutral text-white flex flex-col justify-start p-6">
+                            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">{{'Projects' | translate}}</a>
+                            <a href="#" class="pb-6">{{'Projects presentation' | translate}}</a>
+                            <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+
+                </section>
+
+                <!-- Sidebar Section -->
+                <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+
+                    <div class="w-full bg-neutral shadow flex flex-col my-4 p-6 text-white border">
+                        <p class="text-xl font-semibold pb-5">{{ 'Learn more about me' | translate }}</p>
+                        <p class="pb-2">{{ 'presentation' | translate }}</p>
+                        <button (click)="openModal()" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+                            {{ 'See more' | translate }}
+                        </button>
+                    </div>
+
+                    <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+                        <p class="text-xl font-semibold pb-5">Instagram</p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <img class="hover:opacity-75" src="./assets/img/steveen1.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen.jpeg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen5.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen6.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen4.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen7.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen3.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen2.jpg">
+                            <img class="hover:opacity-75" src="./assets/img/steveen9.jpg">
+                        </div>
+                        <a href="https://www.instagram.com/steveen_cues/?hl=es-la" target="_blank" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
+                            <i class="fab fa-instagram mr-2"></i> Follow steveen_cues
+                        </a>
+                    </div>
+
+                    <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+                        <p class="text-xl font-semibold pb-5">{{'Education' | translate}}</p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <img class="hover:opacity-75" src="./assets/img/montufar.png">
+                            <img class="hover:opacity-75" src="./assets/img/yavirac.png">
+                            <img class="hover:opacity-75" src="./assets/img/unibe.png">
+                        </div>
+                    </div>
+
+                    <div class="w-full bg-neutral text-white shadow flex flex-col my-4 p-6 border">
+                        <p class="text-xl font-semibold pb-5">{{'Work experiences' | translate}}</p>
+                        <div class="grid grid-cols-3 gap-3">
+                            <img class="hover:opacity-75" src="./assets/img/madjs.png">
+                            <a href="https://manticore-labs.com/" target="_blank"><img class="hover:opacity-75" src="./assets/img/maticore.png"></a>
+                            <a href="https://corporacionjetmind.com/" target="_blank"><img class="hover:opacity-75" src="./assets/img/mind.png"></a>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!-- pagina fin -->
+            <div class="relative">
+                <app-modal-profile *ngIf="isModalOpen" (close)="closeModal()"></app-modal-profile>
+            </div>
         </div>
-        <div class="flex-grow">
+        <div class="relative">
+            <app-footer></app-footer>
         </div>
     </div>
-</div>

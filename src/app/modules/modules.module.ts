@@ -23,6 +23,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     ModulesRoutingModule,
     ComponentsModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

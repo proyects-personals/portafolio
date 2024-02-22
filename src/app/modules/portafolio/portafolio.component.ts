@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import emailjs from '@emailjs/browser'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemeService } from 'src/app/service/theme/theme.service';
+import { ModalProfileComponent } from 'src/app/components/modal-profile/modal-profile.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portafolio',
@@ -12,13 +14,12 @@ import { ThemeService } from 'src/app/service/theme/theme.service';
 })
 export class PortafolioComponent implements OnInit {
 
-  // isDarkMode: boolean  = false;
-  // sunMoonIcon: string = 'fa-solid fa-moon';
-  // selectedTheme: string = '';
-  // languageDropdownOpen: boolean = false;
-  // isMenuOpen = false;
-  // showMenuDown = true;
-  // isMenuOpenEmail = false;
+
+  isMenuOpen = false;
+  showMenuDown = true;
+  isMenuOpenEmail = false;
+  isModalOpen = false;
+
   // showMenuDownEmail = true;
   // mostrarPrimaria = false;
   // mostrarSecundaria = false;
@@ -31,11 +32,34 @@ export class PortafolioComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private fb:FormBuilder,
     private themeService: ThemeService,
+    private _router: Router,
   ) {
-    // this.addLangs();
-    // this.defaultLang();
     // this.initForm();
   }
+
+
+    // //informations
+    // openDialogInformationBranch(): void {
+    //   const dialogRef = this.openInformationsBranchDialog();
+  
+    //   dialogRef.afterClosed().subscribe(() => {
+        
+    //       this.navigateToBranchList()
+        
+    //   });
+    // }
+  
+    // private navigateToBranchList(): void {
+    //   this._router.navigate(['/system/sucursales']);
+    // }
+  
+    // public openInformationsBranchDialog(): MatDialogRef<ModalProfileComponent> {
+    //   return this._dialog.open(ModalProfileComponent, {
+    //     height: '20px',
+    //     width: '50px',
+    //   });
+    // }
+  
 
   // initForm() {
   //   this.formGroup = this.fb.group({
@@ -94,22 +118,31 @@ export class PortafolioComponent implements OnInit {
     this.el.nativeElement.dataset.theme = theme;
   }
 
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+  
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
   // titles = [
   //   "'Skill' | translate }}"
   // ];
 
-  // toggleMenu() {
-  //   this.isMenuOpen = !this.isMenuOpen;
-  // }
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
 
-  // abrirModal(): void {
-  //   this.isMenuOpen = true;
-  // }
+  abrirModal(): void {
+    this.isMenuOpen = true;
+  }
 
-  // cerrarModal(): void {
-  //   this.isMenuOpen = false;
-  // }
+  cerrarModal(): void {
+    this.isMenuOpen = false;
+  }
 
   // mostrarImagenSecundaria(): void {
   //   this.mostrarPrimaria = false;
@@ -121,13 +154,13 @@ export class PortafolioComponent implements OnInit {
   //   this.mostrarSecundaria = false;
   // }
   
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event: any) {
-  //   const windowHeight = window.innerHeight;
-  //   const buttonBottom = document.getElementById('toggleButton')?.getBoundingClientRect().bottom || 0;
-  //   this.showMenuDown = buttonBottom < windowHeight / 2;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    const windowHeight = window.innerHeight;
+    const buttonBottom = document.getElementById('toggleButton')?.getBoundingClientRect().bottom || 0;
+    this.showMenuDown = buttonBottom < windowHeight / 2;
 
-  // }
+  }
 
   // toggleMenuEmail() {
   //   this.isMenuOpenEmail = !this.isMenuOpenEmail;
@@ -146,52 +179,5 @@ export class PortafolioComponent implements OnInit {
   // }
 
 
-  // cambiarIdioma(idioma: string) {
-  //   this._translate.use(idioma); // Cambiar el idioma
-  // }
-
-  // addLangs() {
-  //   this._translate.addLangs(["es", "en"]);
-  // }
-
-  // defaultLang() {
-  //   this._translate.setDefaultLang('es');
-  // }
-
-  //  toggleLanguageDropdown() {
-  //   this.languageDropdownOpen = !this.languageDropdownOpen;
-  // }
-
-  // changeLanguage(language: string) {
-  //   this._translate.use(language);
-  //   this.languageDropdownOpen = false; // Cierra el menú desplegable después de seleccionar un idioma
-  // }
-
-  // changeTheme(theme: string) {
-  //   // Cambia el valor de isDarkMode, selectedTheme y aplica el tema
-  //   this.isDarkMode = theme === 'dark';
-  //   this.selectedTheme = theme;
-  //   this.setTheme(theme);
-  // }
-
-  // private setTheme(theme: string) {
-  //   // Cambiar el tema según el valor del atributo data-theme
-  //   this.el.nativeElement.dataset.theme = theme;
-  //   // Guardar el tema seleccionado en localStorage
-  //   localStorage.setItem('theme', theme);
-
-  //   // Opcional: Cambiar el tema global de la aplicación (usando Renderer2)
-  //   if (theme === 'dark') {
-  //     this.renderer.addClass(this.document.body, 'dark-theme');
-  //   } else {
-  //     this.renderer.removeClass(this.document.body, 'dark-theme');
-  //   }
-  // }
-
-  // toggleTheme() {
-  //   this.isDarkMode = !this.isDarkMode; // Cambia el modo entre oscuro y claro
-  //   this.changeTheme(this.isDarkMode ? 'dark' : 'light'); // Cambia el tema
-  //   // Cambia el ícono del sol y la luna según el modo
-  //   this.sunMoonIcon = this.isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-  // }
+ 
 }

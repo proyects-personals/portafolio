@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   sunMoonIcon: string = 'fa-solid fa-moon';
   languageDropdownOpen: boolean = false;
   themes = '';
+  isModalOpen = false;
 
   constructor(
     public _translate: TranslateService,
@@ -21,7 +22,7 @@ export class NavbarComponent implements OnInit {
     private themeService: ThemeService,
     private el: ElementRef,
     private renderer: Renderer2,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadSavedTheme();
@@ -79,5 +80,13 @@ export class NavbarComponent implements OnInit {
     this._translate.use(language);
     localStorage.setItem('language', language);
     this.languageDropdownOpen = false;
-  }  
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
 }

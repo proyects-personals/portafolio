@@ -19,6 +19,7 @@ export class PortafolioComponent implements OnInit {
   showMenuDown = true;
   isMenuOpenEmail = false;
   isModalOpen = false;
+  isModalOpenEmail = false;
 
   // showMenuDownEmail = true;
   // mostrarPrimaria = false;
@@ -125,6 +126,10 @@ export class PortafolioComponent implements OnInit {
   
   closeModal() {
     this.isModalOpen = false;
+  }
+
+  closeModalEmail() {
+    this.isModalOpenEmail = false;
   }
 
   // titles = [

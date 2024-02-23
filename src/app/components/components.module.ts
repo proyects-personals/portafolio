@@ -9,6 +9,7 @@ import { createTranslateLoader } from '../app.module';
 import { FooterComponent } from './footer/footer.component';
 import { ModalProfileComponent } from './modal-profile/modal-profile.component';
 import { ModalFormComponent } from './modal-form/modal-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { ModalFormComponent } from './modal-form/modal-form.component';
   imports: [
     CommonModule,
     ComponentsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,6 +36,7 @@ import { ModalFormComponent } from './modal-form/modal-form.component';
     NavbarComponent,
     FooterComponent,
     ModalProfileComponent,
+    ModalFormComponent,
   ]
 })
 export class ComponentsModule { }

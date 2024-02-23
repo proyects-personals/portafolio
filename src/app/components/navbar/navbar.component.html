@@ -4,7 +4,7 @@
         <div>
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                 <li>
-                    <button id="toggleButtonEmail" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
+                    <button (click)="openModal()" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
                     translate }}</button>
                 </li>
             </ul>
@@ -43,3 +43,7 @@
     </div>
 
 </nav>
+
+<div class="relative">
+    <app-modal-form *ngIf="isModalOpen" (close)="closeModal()"></app-modal-form>
+</div>

@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalProfileComponent {
 
-  @Input() userInfo: any; // Ajusta según la estructura de tus datos
+  @Input() userInfo: any;
 
   mostrarPrimaria = true;
   mostrarSecundaria = false;

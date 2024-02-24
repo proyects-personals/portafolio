@@ -1,4 +1,10 @@
-<footer class="w-full border-t bg-black text-white pb-12 relative">
+<footer class="w-full border-t bg-black text-white pb-12 ">
+    <div class="relative">
+        <app-modal-profile *ngIf="isModalOpen" (close)="closeModal()"></app-modal-profile>
+    </div>
+    <div class="relative">
+        <app-modal-form *ngIf="isModalOpenForm" (close)="closeModalForm()"></app-modal-form>
+    </div>
     <div class="w-full container mx-auto flex flex-col items-center">
         <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
             <button (click)="openModal()" class="uppercase px-3">
@@ -9,11 +15,3 @@
         <div class="pb-6">&copy; scues505@gmail.com</div>
     </div>
 </footer>
-
-<div class="relative">
-    <app-modal-profile *ngIf="isModalOpen" (close)="closeModal()"></app-modal-profile>
-</div>
-
-<div class="relative">
-    <app-modal-form *ngIf="isModalOpenForm" (close)="closeModalForm()"></app-modal-form>
-</div>

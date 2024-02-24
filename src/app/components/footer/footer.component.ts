@@ -9,7 +9,8 @@ import { ThemeService } from 'src/app/service/theme/theme.service';
 })
 export class FooterComponent implements OnInit {
 
-  isModalOpen = false;
+  isModalOpen: boolean = false;
+  isModalOpenForm: boolean = false;
 
   constructor(
     private themeService: ThemeService,
@@ -22,15 +23,23 @@ export class FooterComponent implements OnInit {
     });
   }
 
-  private changeTheme(theme: string) {
+  private changeTheme(theme: string): void {
     this.el.nativeElement.dataset.theme = theme;
   }
 
-  openModal() {
+  openModal(): void {
     this.isModalOpen = true;
   }
   
-  closeModal() {
+  closeModal(): void {
     this.isModalOpen = false;
+  }
+
+  openModalForm(): void{
+    this.isModalOpenForm = true;
+  }
+
+  closeModalForm(): void{
+    this.isModalOpenForm = false
   }
 }

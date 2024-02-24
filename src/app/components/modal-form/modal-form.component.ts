@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser'
 
@@ -10,7 +10,8 @@ import emailjs from '@emailjs/browser'
 export class ModalFormComponent  implements OnInit {
 
   formGroup!: FormGroup;
-
+  isModalOpen = true;
+  @Output() close = new EventEmitter<boolean>();
   ngOnInit(): void {
    
   }
@@ -68,6 +69,10 @@ export class ModalFormComponent  implements OnInit {
     });
     alert('Message has been sent');
     this.formGroup.reset();
+  }
+
+  closeModal() {
+    this.close.emit();
   }
   
 }

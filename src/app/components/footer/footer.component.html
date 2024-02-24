@@ -4,7 +4,7 @@
             <button (click)="openModal()" class="uppercase px-3">
                 {{ 'About me' | translate }}
                 </button>
-            <button class="uppercase px-3">{{ 'contact' | translate }}</button>
+            <button (click)="openModalForm()" class="uppercase px-3">{{ 'contact' | translate }}</button>
         </div>
         <div class="pb-6">&copy; scues505@gmail.com</div>
     </div>
@@ -12,4 +12,8 @@
 
 <div class="relative">
     <app-modal-profile *ngIf="isModalOpen" (close)="closeModal()"></app-modal-profile>
+</div>
+
+<div class="relative">
+    <app-modal-form *ngIf="isModalOpenForm" (close)="closeModalForm()"></app-modal-form>
 </div>

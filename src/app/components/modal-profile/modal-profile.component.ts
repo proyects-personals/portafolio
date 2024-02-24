@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal-profile',
@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ModalProfileComponent {
 
   @Input() userInfo: any;
+  @Output() close = new EventEmitter<boolean>();
 
   mostrarPrimaria = true;
   mostrarSecundaria = false;
@@ -20,5 +21,9 @@ export class ModalProfileComponent {
   ocultarImagenSecundaria() {
     this.mostrarPrimaria = true;
     this.mostrarSecundaria = false;
+  }
+
+  closeModal() {
+    this.close.emit();
   }
 }

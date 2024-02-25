@@ -2,33 +2,33 @@
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
         <div>
-            <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+            <ul class="flex items-center justify-between font-bold text-sm text-white uppercase">
                 <li>
-                    <button (click)="openModal()" class="hover:text-gray-200 hover:underline px-4">{{ 'contact' |
+                    <button (click)="openModal()" class="hover:text-gray-400 px-4">{{ 'contact' |
                     translate }}</button>
                 </li>
             </ul>
         </div>
         <div class="text-lg text-white">
             <a class="" href="https://www.linkedin.com/in/steveen-ordo%C3%B1ez-244b0a227/" target="_blank">
-                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-linkedin hover:text-gray-400"></i>
             </a>
             <a class="pl-6" href="https://www.instagram.com/steveen_cues/" target="_blank">
-                <i class="fab fa-instagram"></i>
+                <i class="fab fa-instagram hover:text-gray-400"></i>
             </a>
             <a class="pl-6" href="https://github.com/hscordonez" target="_blank">
-                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-github hover:text-gray-400"></i>
             </a>
         </div>
 
         <div class="flex items-center text-lg no-underline text-white pr-6">
             <div class="pl-6">
                 <button (click)="toggleTheme()">
-                <i class="text-white" [ngClass]="sunMoonIcon"></i>
+                <i class="text-white hover:text-gray-400" [ngClass]="sunMoonIcon"></i>
             </button>
             </div>
             <div class="flex " (click)="toggleLanguageDropdown()">
-                <button data-dropdown-toggle="dropdown-states" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-neutral">
+                <button data-dropdown-toggle="dropdown-states" class="hover:text-gray-400 flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-neutral">
                     {{ 'language' | translate }} <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
             </svg>

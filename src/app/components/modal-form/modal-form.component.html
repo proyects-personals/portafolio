@@ -1,0 +1,88 @@
+<div class="overflow-y-auto fixed z-50 inset-0 flex justify-center items-center w-full h-full">
+    <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div class="bg-neutral rounded-x w-full ml-3 mr-3 md:w-[40%] ">
+        <!-- Modal content -->
+        <div class="relative bg-neutral rounded-xl text-white">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-white">
+                    Steveen Ordoñez
+                </h3>
+                <button (click)="closeModal()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="timeline-modal">
+                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form [formGroup]="formGroup" action="javascript:void(0)" (submit)="send()" class="p-4 md:p-5">
+                <div class="grid gap-4 mb-4 grid-cols-2">
+                    <!-- name -->
+                    <div class="col-span-2">
+                        <label for="full-name" class="block mb-2 text-sm font-medium text-white">{{ 'Full names' | translate }}</label>
+                        <input formControlName="from_name" type="text" name="name" id="full-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-500 placeholder-brand dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="{{ 'Full names' | translate }}">
+                        <div *ngIf="formGroup.get('from_name')?.invalid && (formGroup.get('from_name')?.dirty || formGroup.get('from_name')?.touched)" class="text-red text-xs mt-1">
+                            <div *ngIf="formGroup.get('from_name')?.errors?.['required']">
+                                {{ 'Full name is required' | translate }}
+                            </div>
+                            <div *ngIf="formGroup.get('from_name')?.errors?.['minlength']">
+                                {{ 'Full name must be at least 2 characters' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- subj -->
+                    <div class="col-span-2">
+                        <label for="subject" class="block mb-2 text-sm font-medium text-white">{{ 'Affair' | translate }}</label>
+                        <input formControlName="subject" type="text" name="name" id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-500 placeholder-brand dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="{{ 'Affair' | translate }}">
+                        <div *ngIf="formGroup.get('subject')?.invalid && (formGroup.get('subject')?.dirty || formGroup.get('subject')?.touched)" class="text-red text-xs mt-1">
+                            <div *ngIf="formGroup.get('subject')?.errors?.['required']">
+                                {{ 'Subject is required' | translate }}
+                            </div>
+                            <div *ngIf="formGroup.get('subject')?.errors?.['minlength']">
+                                {{ 'Subject must be at least 2 characters' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- email -->
+                    <div class="col-span-2">
+                        <label for="email" class="block mb-2 text-sm font-medium text-white">{{ 'Email' | translate }}</label>
+                        <input formControlName="from_email" id="email" name="name" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-500 placeholder-brand dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="{{ 'Affair' | translate }}">
+                        <div *ngIf="formGroup.get('from_email')?.invalid && (formGroup.get('from_email')?.dirty || formGroup.get('from_email')?.touched)" class="text-red text-xs mt-1">
+                            <div *ngIf="formGroup.get('from_email')?.errors?.['required']">
+                                {{ 'Email is required' | translate }}
+                            </div>
+                            <div *ngIf="formGroup.get('from_email')?.errors?.['email']">
+                                {{ 'Invalid email format' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="message" class="block mb-2 text-sm font-medium text-white">{{ 'Message' | translate }}</label>
+                        <textarea formControlName="message" id="message" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-500 placeholder-brand dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="{{ 'Example message' | translate }}"></textarea>
+                        <div *ngIf="formGroup.get('message')?.invalid && (formGroup.get('message')?.dirty || formGroup.get('message')?.touched)" class="text-red text-xs mt-1">
+                            <div *ngIf="formGroup.get('message')?.errors?.['required']">
+                                {{ 'Se requiere mensaje' | translate }}
+                            </div>
+                            <div *ngIf="formGroup.get('message')?.errors?.['message']">
+                                {{ 'Invalid email format' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button [disabled]="!formGroup.valid" [ngClass]="{ '!bg-metal': !formGroup.valid }" type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700
+                            dark:focus:ring-blue-800 ">
+                    <svg class="me-1 -ms-1 w-5 h-5 " fill="currentColor " viewBox="0 0 20 20 " xmlns="http://www.w3.org/2000/svg "><path fill-rule="evenodd " d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z
+                            " clip-rule="evenodd "></path></svg>
+                            {{ 'Send' | translate }}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

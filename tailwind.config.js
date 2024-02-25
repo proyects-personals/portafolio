@@ -16,11 +16,12 @@ const { createThemes } = require('tw-colors');
                "success": "#00ff86",
                "warning": "#ff4100",
                "error": "#f10042",
-               'brand': '#9CA3AF',
+               'brand': '#dad7d7',
                'red': '#8d0013d7',
                'white': '#000000',
                'black': '#ffffff',
                'gray-50': '#F9FAFB',
+                "metal":"#64748b",
             },
            dark: { 
             "primary": "#000000",
@@ -36,7 +37,9 @@ const { createThemes } = require('tw-colors');
             'white': '#ffffff',
             'red': '#8d0013d7',
             'black': '#000000',
-            'gray-50': '#94A3B8',
+            'gray-50': '#4B5563',
+            "metal":"#64748b",
+
            },
            forest: { 
               'primary': '#2A9D8F',

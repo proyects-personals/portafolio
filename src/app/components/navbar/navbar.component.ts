@@ -41,8 +41,11 @@ export class NavbarComponent implements OnInit {
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage != null) {
       this.changeLanguage(savedLanguage);
+    } else {
+      this.changeLanguage('es');
     }
   }
+
 
   toggleTheme() {
     const currentTheme = this.themeService.getCurrentTheme();

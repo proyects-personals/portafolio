@@ -1,11 +1,11 @@
 <div class="overflow-y-auto fixed z-50 inset-0 flex justify-center items-center w-full h-full">
     <div class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-    <div class="bg-neutral rounded-x w-full ml-3 mr-3 md:w-[40%] ">
+    <div class="bg-primary rounded-x w-full ml-3 mr-3 md:w-[40%] ">
         <!-- Modal content -->
-        <div class="relative bg-neutral rounded-xl text-white">
+        <div class="relative bg-primary rounded-xl text-white">
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-white">
+                <h3 class="text-lg font-semibold text-white hover:text-gray-400">
                     Steveen Ordoñez
                 </h3>
                 <button (click)="closeModal()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="timeline-modal">
@@ -21,24 +21,24 @@
             <div class="p-4 md:p-5">
                 <ol class="relative border-s border-gray-200 dark:border-gray-600 ms-3.5 mb-4 md:mb-5">
                     <li class="mb-10 ms-8">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3.5 ring-8 ring-white dark:ring-gray-700 dark:bg-gray-600">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-primary rounded-full -start-3.5 ring-8 ring-white">
                             <svg class="w-2.5 h-2.5 text-gray-500 dark:text-gray-400" 
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path fill="currentColor"
                                     d="M6 1a1 1 0 0 0-2 0h2ZM4 4a1 1 0 0 0 2 0H4Zm7-3a1 1 0 1 0-2 0h2ZM9 4a1 1 0 1 0 2 0H9Zm7-3a1 1 0 1 0-2 0h2Zm-2 3a1 1 0 1 0 2 0h-2ZM1 6a1 1 0 0 0 0 2V6Zm18 2a1 1 0 1 0 0-2v2ZM5 11v-1H4v1h1Zm0 .01H4v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM10 11v-1H9v1h1Zm0 .01H9v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM10 15v-1H9v1h1Zm0 .01H9v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM15 15v-1h-1v1h1Zm0 .01h-1v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM15 11v-1h-1v1h1Zm0 .01h-1v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM5 15v-1H4v1h1Zm0 .01H4v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM2 4h16V2H2v2Zm16 0h2a2 2 0 0 0-2-2v2Zm0 0v14h2V4h-2Zm0 14v2a2 2 0 0 0 2-2h-2Zm0 0H2v2h16v-2ZM2 18H0a2 2 0 0 0 2 2v-2Zm0 0V4H0v14h2ZM2 4V2a2 2 0 0 0-2 2h2Zm2-3v3h2V1H4Zm5 0v3h2V1H9Zm5 0v3h2V1h-2ZM1 8h18V6H1v2Zm3 3v.01h2V11H4Zm1 1.01h.01v-2H5v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H5v2h.01v-2ZM9 11v.01h2V11H9Zm1 1.01h.01v-2H10v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H10v2h.01v-2ZM9 15v.01h2V15H9Zm1 1.01h.01v-2H10v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H10v2h.01v-2ZM14 15v.01h2V15h-2Zm1 1.01h.01v-2H15v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H15v2h.01v-2ZM14 11v.01h2V11h-2Zm1 1.01h.01v-2H15v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H15v2h.01v-2ZM4 15v.01h2V15H4Zm1 1.01h.01v-2H5v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H5v2h.01v-2Z" />
                             </svg>
                         </span>
-                        <h3 class="flex items-start mb-1 text-lg font-semibold text-white">{{ 'Personal information' | translate }}</h3>
+                        <h3 class="flex items-start mb-1 text-lg font-semibold text-white hover:text-gray-400 ">{{ 'Personal information' | translate }}</h3>
                         <ul class="list-inside ml-4 text-sm">
                             <li class="relative flex items-center">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <p class="text-white"><span class="ml-2">{{ 'Age' |
+                                <p class="text-white"><span class="ml-2 hover:text-gray-400">{{ 'Age' |
                                         translate }}</span> 23</p>
                                 <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
                             </li>
                             <li class="relative flex items-center mt-3">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <p class="text-white"><span class=" ml-2">{{ 'Residence' |
+                                <p class="text-white"><span class=" ml-2 hover:text-gray-400">{{ 'Residence' |
                                         translate }}</span> Quito-Ecuador</p>
                             </li>
                         </ul>
@@ -48,61 +48,61 @@
                             </button> -->
                     </li>
                     <li class="mb-10 ms-8">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3.5 ring-8 ring-white dark:ring-gray-700 dark:bg-gray-600">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-primary rounded-full -start-3.5 ring-8 ring-white">
                             <svg class="w-2.5 h-2.5 text-gray-500 dark:text-gray-400"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path fill="currentColor"
                                     d="M6 1a1 1 0 0 0-2 0h2ZM4 4a1 1 0 0 0 2 0H4Zm7-3a1 1 0 1 0-2 0h2ZM9 4a1 1 0 1 0 2 0H9Zm7-3a1 1 0 1 0-2 0h2Zm-2 3a1 1 0 1 0 2 0h-2ZM1 6a1 1 0 0 0 0 2V6Zm18 2a1 1 0 1 0 0-2v2ZM5 11v-1H4v1h1Zm0 .01H4v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM10 11v-1H9v1h1Zm0 .01H9v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM10 15v-1H9v1h1Zm0 .01H9v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM15 15v-1h-1v1h1Zm0 .01h-1v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM15 11v-1h-1v1h1Zm0 .01h-1v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM5 15v-1H4v1h1Zm0 .01H4v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM2 4h16V2H2v2Zm16 0h2a2 2 0 0 0-2-2v2Zm0 0v14h2V4h-2Zm0 14v2a2 2 0 0 0 2-2h-2Zm0 0H2v2h16v-2ZM2 18H0a2 2 0 0 0 2 2v-2Zm0 0V4H0v14h2ZM2 4V2a2 2 0 0 0-2 2h2Zm2-3v3h2V1H4Zm5 0v3h2V1H9Zm5 0v3h2V1h-2ZM1 8h18V6H1v2Zm3 3v.01h2V11H4Zm1 1.01h.01v-2H5v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H5v2h.01v-2ZM9 11v.01h2V11H9Zm1 1.01h.01v-2H10v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H10v2h.01v-2ZM9 15v.01h2V15H9Zm1 1.01h.01v-2H10v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H10v2h.01v-2ZM14 15v.01h2V15h-2Zm1 1.01h.01v-2H15v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H15v2h.01v-2ZM14 11v.01h2V11h-2Zm1 1.01h.01v-2H15v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H15v2h.01v-2ZM4 15v.01h2V15H4Zm1 1.01h.01v-2H5v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H5v2h.01v-2Z" />
                             </svg>
                         </span>
-                        <h3 class="mb-1 text-lg font-semibold text-white">{{ 'Academic training' | translate }}</h3>
+                        <h3 class="mb-1 text-lg font-semibold text-white hover:text-gray-400">{{ 'Academic training' | translate }}</h3>
 
                         <ul class="list-inside ml-4 text-sm">
                             <li class="relative flex items-center">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <p class="ml-2"><span>Replica Montufar:</span> {{ 'Bachelor of Science' | translate }}
+                                <p class="ml-2"><span class="hover:text-gray-400">Replica Montufar:</span> {{ 'Bachelor of Science' | translate }}
                                     <i class="fa-solid fa-check text-green ml-1"></i>
                                     <p>
                                         <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
                             </li>
                             <li class="relative flex items-center mt-3">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <p class="ml-2"><a target="_blank" href="https://yavirac.edu.ec/">Intituto
+                                <p class="ml-2"><a target="_blank" href="https://yavirac.edu.ec/" class="hover:text-gray-400">Intituto
                                     Yavirac:</a> {{ 'Software Technology' | translate }}<i class="fa-solid fa-check text-green ml-1"></i></p>
                                 <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
                             </li>
                             <li class="relative flex items-center mt-3">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <p class="ml-2"><a target="_blank" href="https://unibe.edu.ec/">Universidad
+                                <p class="ml-2"><a target="_blank" href="https://unibe.edu.ec/" class="hover:text-gray-400">Universidad
                                     UNIBE:</a> {{ 'Software Engineering' | translate }}<i class="fa-solid fa-clock ml-1"></i></p>
                             </li>
 
                         </ul>
                     </li>
                     <li class="ms-8">
-                        <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-100 rounded-full -start-3.5 ring-8 ring-white dark:ring-gray-700 dark:bg-gray-600">
+                        <span class="absolute flex items-center justify-center w-6 h-6 bg-primary rounded-full -start-3.5 ring-8 ring-white">
                             <svg class="w-2.5 h-2.5 text-gray-500 dark:text-gray-400" 
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path fill="currentColor"
                                     d="M6 1a1 1 0 0 0-2 0h2ZM4 4a1 1 0 0 0 2 0H4Zm7-3a1 1 0 1 0-2 0h2ZM9 4a1 1 0 1 0 2 0H9Zm7-3a1 1 0 1 0-2 0h2Zm-2 3a1 1 0 1 0 2 0h-2ZM1 6a1 1 0 0 0 0 2V6Zm18 2a1 1 0 1 0 0-2v2ZM5 11v-1H4v1h1Zm0 .01H4v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM10 11v-1H9v1h1Zm0 .01H9v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM10 15v-1H9v1h1Zm0 .01H9v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM15 15v-1h-1v1h1Zm0 .01h-1v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM15 11v-1h-1v1h1Zm0 .01h-1v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM5 15v-1H4v1h1Zm0 .01H4v1h1v-1Zm.01 0v1h1v-1h-1Zm0-.01h1v-1h-1v1ZM2 4h16V2H2v2Zm16 0h2a2 2 0 0 0-2-2v2Zm0 0v14h2V4h-2Zm0 14v2a2 2 0 0 0 2-2h-2Zm0 0H2v2h16v-2ZM2 18H0a2 2 0 0 0 2 2v-2Zm0 0V4H0v14h2ZM2 4V2a2 2 0 0 0-2 2h2Zm2-3v3h2V1H4Zm5 0v3h2V1H9Zm5 0v3h2V1h-2ZM1 8h18V6H1v2Zm3 3v.01h2V11H4Zm1 1.01h.01v-2H5v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H5v2h.01v-2ZM9 11v.01h2V11H9Zm1 1.01h.01v-2H10v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H10v2h.01v-2ZM9 15v.01h2V15H9Zm1 1.01h.01v-2H10v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H10v2h.01v-2ZM14 15v.01h2V15h-2Zm1 1.01h.01v-2H15v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H15v2h.01v-2ZM14 11v.01h2V11h-2Zm1 1.01h.01v-2H15v2Zm1.01-1V11h-2v.01h2Zm-1-1.01H15v2h.01v-2ZM4 15v.01h2V15H4Zm1 1.01h.01v-2H5v2Zm1.01-1V15h-2v.01h2Zm-1-1.01H5v2h.01v-2Z" />
                             </svg>
                         </span>
-                        <h3 class="mb-1 text-lg font-semibold text-white">{{ 'Work experience' | translate }}
+                        <h3 class="mb-1 text-lg font-semibold text-white hover:text-gray-400">{{ 'Work experience' | translate }}
                         </h3>
                         <ul class="list-inside ml-4 text-sm">
                             <li class="relative flex items-center">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <span class="ml-2">Monto Acrilica.</span>
+                                <span class="ml-2 hover:text-gray-400">Monto Acrilica.</span>
                                 <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
                             </li>
                             <li class="relative flex items-center mt-3">
                                 <span class="inline-block fa-solid fa-circle mt-3" style="font-size: 0.6rem; position: relative; transform: translateY(-50%);"></span>
-                                <a class="ml-2" href="https://manticore-labs.com/" target="_blank">Manticore-labs.</a>
+                                <a class="ml-2 hover:text-gray-400" href="https://manticore-labs.com/" target="_blank" >Manticore-labs.</a>
                                 <div class="absolute h-3 left-0 top-6 border-l-2 border-red border-black ml-1"></div>
                             </li>
                             <li class="relative mt-3">
                                 <span class="inline-block fa-solid fa-circle" style="font-size: 0.6rem;"></span>
-                                <a class="ml-2" href="https://corporacionjetmind.com/" target="_blank">Corporación Jetmind.</a>
+                                <a class="ml-2 hover:text-gray-400" href="https://corporacionjetmind.com/" target="_blank">Corporación Jetmind.</a>
                             </li>
                         </ul>
                     </li>

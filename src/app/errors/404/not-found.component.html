@@ -1,13 +1,14 @@
-<div class="hero min-h-screen bg-neutral-content text-neutral relative">
+<div class="hero min-h-screen bg-neutral text-white relative flex justify-center items-center">
     <div class="hero-content text-center">
         <div class="max-w-xl">
-            <h1 class="text-5xl font-bold">404</h1>
-            <h3>Página no encontrada</h3>
-            <p class="py-6">Parece que a habido un error con la página que estabas buscando.
-                <br> Es posible que la entrada haya sido eliminada o que la dirección no exista.
+            <h1 class="text-5xl font-bold hover:text-gray-400">404</h1>
+            <h3>{{ 'Page not found' | translate }}</h3>
+            <p class="py-6">{{ 'Message page not found' | translate }}
+                <br> {{ 'Message page not found 1' | translate }}
             </p>
-            <button class="btn btn-sm bg-[#14bbee]" (click)="getBack()">volver</button>
+            <button (click)="getBack()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                {{ 'Go back' | translate }}
+            </button>
         </div>
     </div>
-    <img src="assets/images/LogoYavirac.png" class="w-1/6 absolute bottom-0 right-5 " alt="hero image">
 </div>

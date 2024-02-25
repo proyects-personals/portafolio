@@ -10,7 +10,7 @@ const { createThemes } = require('tw-colors');
                "primary": "#ffffff",
                "secondary": "#0093ff",
                "accent": "#8c1c00",
-               "neutral": "#ffffff",
+               "neutral": "#f6f6f6",
                "base-100": "#0d3325",
                "info": "#0094cc",
                "success": "#00ff86",

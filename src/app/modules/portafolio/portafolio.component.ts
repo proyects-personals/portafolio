@@ -1,11 +1,6 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, ElementRef, HostListener, Inject, OnInit, Renderer2 } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import emailjs from '@emailjs/browser'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit} from '@angular/core';
 import { ThemeService } from 'src/app/service/theme/theme.service';
-import { ModalProfileComponent } from 'src/app/components/modal-profile/modal-profile.component';
-import { Router } from '@angular/router';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-portafolio',
@@ -14,18 +9,21 @@ import { Router } from '@angular/router';
 })
 export class PortafolioComponent implements OnInit {
 
-  isModalOpen = false;
+  isModalOpen: boolean = false;
 
   constructor(
     private el: ElementRef,
     private themeService: ThemeService,
+    private _translate: TranslateService
   ) {}
 
   ngOnInit(): void {
+    this.loadSavedLanguage();
     this.themeService.theme$.subscribe(theme => {
       this.changeTheme(theme);
     });
   }
+
 
   private changeTheme(theme: string) {
     this.el.nativeElement.dataset.theme = theme;
@@ -37,6 +35,11 @@ export class PortafolioComponent implements OnInit {
   
   closeModal() {
     this.isModalOpen = false;
+  }
+
+  private loadSavedLanguage(): void {
+    const savedLanguage = localStorage.getItem('language') || 'es'; // 'es' como idioma por defecto
+    this._translate.use(savedLanguage);
   }
 
 }

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import emailjs from '@emailjs/browser'
+import { EmailMessage } from 'src/app/interfaces/emial';
+import { EmailHttpService } from 'src/app/service/email/email-http.service';
 
 @Component({
   selector: 'app-modal-form',
@@ -10,8 +11,11 @@ import emailjs from '@emailjs/browser'
 export class ModalFormComponent  implements OnInit {
 
   formGroup!: FormGroup;
+  currentEmail = {} as EmailMessage;
   isModalOpen = true;
   @Output() close = new EventEmitter<boolean>();
+  isSending = false;
+  
   ngOnInit(): void {
    
   }
@@ -19,6 +23,7 @@ export class ModalFormComponent  implements OnInit {
 
   constructor(
     private fb:FormBuilder,
+    private _emailHttpService:EmailHttpService,
   ) {
     this.initForm();
   }
@@ -56,20 +61,23 @@ export class ModalFormComponent  implements OnInit {
         }
       ],
     })
+    this.formGroup.valueChanges.subscribe((val) => {
+      this.currentEmail = val;
+      console.log(this.currentEmail)
+    });
   }
 
-  async send() {
-    emailjs.init('qIVLgZYRhPQybiqfI')
-    let response = await emailjs.send('service_rtyq5ds','template_b6reeee',{
-      from_name:this.formGroup.value.from_name,
-      to_name:this.formGroup.value.to_name,
-      from_email:this.formGroup.value.from_email,
-      subject:this.formGroup.value.subject,
-      message:this.formGroup.value.message,
-    });
-    alert('Message has been sent');
-    this.formGroup.reset();
+  public createEmail() {
+    this._emailHttpService.sendEmail(this.currentEmail).subscribe((response:any) => {
+      alert('correo enviado')
+    })
   }
+
+  public send(): void {
+    if (this.formGroup.valid) {
+      this.createEmail();
+      }
+    }
 
   closeModal() {
     this.close.emit();

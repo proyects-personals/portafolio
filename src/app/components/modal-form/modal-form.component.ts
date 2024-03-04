@@ -36,18 +36,28 @@ export class ModalFormComponent  implements OnInit {
         {
           validators: [
             Validators.required,
-            Validators.minLength(2)
+            Validators.minLength(2),
+            Validators.maxLength(20)
           ]
         }
       ],
       to_name:'Admin',
-      from_email:['', [Validators.required, Validators.email]],
+      from_email:['', 
+      [
+        Validators.required,
+        Validators.email,
+        Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"),
+        Validators.minLength(12),
+        Validators.maxLength(20)
+      ]
+    ],
       subject:[
         '',
         {
           validators: [
             Validators.required,
-            Validators.minLength(2)
+            Validators.minLength(2),
+            Validators.maxLength(25)
           ]
         }
       ],
@@ -56,14 +66,14 @@ export class ModalFormComponent  implements OnInit {
         {
           validators: [
             Validators.required,
-            Validators.minLength(2)
+            Validators.minLength(2),
+            Validators.maxLength(125)
           ]
         }
       ],
     })
     this.formGroup.valueChanges.subscribe((val) => {
       this.currentEmail = val;
-      console.log(this.currentEmail)
     });
   }
 

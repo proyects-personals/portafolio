@@ -1,0 +1,8 @@
+<div [formGroup]="formGroups">
+    <label for="{{for}}" class="hover:text-gray-400 block mb-2 text-sm font-medium text-white"></label>
+    <input *ngIf="!message" formControlName="{{formName}}" type="{{type}}" name="{{name}}" id="{{id}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-500 placeholder-brand dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+           placeholder="{{ valueNameTranslatePlaceholder() | translate }}">
+
+    <textarea *ngIf="message"  formControlName="{{formName}}" name="{{name}}" id="{{id}}"  rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-500 placeholder-brand dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              placeholder="{{ 'Example message' | translate }}"></textarea>
+</div>

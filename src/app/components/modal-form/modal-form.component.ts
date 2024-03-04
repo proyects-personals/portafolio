@@ -12,13 +12,10 @@ export class ModalFormComponent  implements OnInit {
 
   formGroup!: FormGroup;
   currentEmail = {} as EmailMessage;
-  isModalOpen = true;
   @Output() close = new EventEmitter<boolean>();
   isSending = false;
-  
-  ngOnInit(): void {
-   
-  }
+
+
 
 
   constructor(
@@ -29,6 +26,16 @@ export class ModalFormComponent  implements OnInit {
   }
 
 
+/*  ngOnInit(): void {
+    this.translates.forEach((key: string) => {
+      this._translateHttpService.getTranslation(key);
+    });
+  }*/
+
+  ngOnInit(): void {
+
+  }
+
   initForm() {
     this.formGroup = this.fb.group({
       from_name:[
@@ -37,7 +44,7 @@ export class ModalFormComponent  implements OnInit {
           validators: [
             Validators.required,
             Validators.minLength(2),
-            Validators.maxLength(20)
+            Validators.maxLength(25)
           ]
         }
       ],
@@ -48,7 +55,7 @@ export class ModalFormComponent  implements OnInit {
         Validators.email,
         Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"),
         Validators.minLength(12),
-        Validators.maxLength(20)
+        Validators.maxLength(25)
       ]
     ],
       subject:[
@@ -57,7 +64,7 @@ export class ModalFormComponent  implements OnInit {
           validators: [
             Validators.required,
             Validators.minLength(2),
-            Validators.maxLength(25)
+            Validators.maxLength(40)
           ]
         }
       ],
@@ -67,13 +74,14 @@ export class ModalFormComponent  implements OnInit {
           validators: [
             Validators.required,
             Validators.minLength(2),
-            Validators.maxLength(125)
+            Validators.maxLength(400)
           ]
         }
       ],
     })
     this.formGroup.valueChanges.subscribe((val) => {
       this.currentEmail = val;
+      console.log(this.currentEmail);
     });
   }
 
@@ -91,6 +99,16 @@ export class ModalFormComponent  implements OnInit {
 
   closeModal() {
     this.close.emit();
+  }
+
+  isControlValid(controlName: string): boolean {
+    const control = this.formGroup.get(controlName);
+    return control?.valid || false;
+  }
+
+  isControlTouched(controlName: string): boolean {
+    const control = this.formGroup.get(controlName);
+    return control?.touched || false;
   }
   
 }

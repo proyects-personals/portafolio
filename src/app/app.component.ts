@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',

@@ -15,6 +15,9 @@ import { ErrorFormComponent } from './forms/error-form/error-form.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { ToastSucessComponent } from './toast/success/toast-sucess.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -25,6 +28,7 @@ import {MatInputModule} from "@angular/material/input";
     ModalFormComponent,
     InputComponent,
     ErrorFormComponent,
+    ToastSucessComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +38,8 @@ import {MatInputModule} from "@angular/material/input";
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    BrowserModule,
+    // MatSnackBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -48,6 +54,7 @@ import {MatInputModule} from "@angular/material/input";
     ModalProfileComponent,
     ModalFormComponent,
     InputComponent,
+    // ToastSucessComponent,
   ]
 })
 export class ComponentsModule { }

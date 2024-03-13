@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailMessage } from 'src/app/interfaces/emial';
 import { EmailHttpService } from 'src/app/service/email/email-http.service';
+import { NotificationHttpService } from 'src/app/service/notification/notification-http.service';
 
 @Component({
   selector: 'app-modal-form',
@@ -14,23 +15,15 @@ export class ModalFormComponent  implements OnInit {
   currentEmail = {} as EmailMessage;
   @Output() close = new EventEmitter<boolean>();
   isSending = false;
-
-
-
+  toastMessage: string = '';
 
   constructor(
     private fb:FormBuilder,
     private _emailHttpService:EmailHttpService,
+    private notificacionesHttpService: NotificationHttpService,
   ) {
     this.initForm();
   }
-
-
-/*  ngOnInit(): void {
-    this.translates.forEach((key: string) => {
-      this._translateHttpService.getTranslation(key);
-    });
-  }*/
 
   ngOnInit(): void {
 
@@ -81,13 +74,12 @@ export class ModalFormComponent  implements OnInit {
     })
     this.formGroup.valueChanges.subscribe((val) => {
       this.currentEmail = val;
-      console.log(this.currentEmail);
     });
   }
 
   public createEmail() {
     this._emailHttpService.sendEmail(this.currentEmail).subscribe((response:any) => {
-      alert('correo enviado')
+      this.notificacionesHttpService.showSuccess('correo enviado');
     })
   }
 

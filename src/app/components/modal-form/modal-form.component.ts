@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import emailjs from '@emailjs/browser'
+import { EmailMessage } from 'src/app/interfaces/emial';
+import { EmailHttpService } from 'src/app/service/email/email-http.service';
+import { NotificationHttpService } from 'src/app/service/notification/notification-http.service';
 
 @Component({
   selector: 'app-modal-form',
@@ -10,19 +12,22 @@ import emailjs from '@emailjs/browser'
 export class ModalFormComponent  implements OnInit {
 
   formGroup!: FormGroup;
-  isModalOpen = true;
+  currentEmail = {} as EmailMessage;
   @Output() close = new EventEmitter<boolean>();
-  ngOnInit(): void {
-   
-  }
-
+  isSending = false;
+  toastMessage: string = '';
 
   constructor(
     private fb:FormBuilder,
+    private _emailHttpService:EmailHttpService,
+    private notificacionesHttpService: NotificationHttpService,
   ) {
     this.initForm();
   }
 
+  ngOnInit(): void {
+
+  }
 
   initForm() {
     this.formGroup = this.fb.group({
@@ -31,18 +36,28 @@ export class ModalFormComponent  implements OnInit {
         {
           validators: [
             Validators.required,
-            Validators.minLength(2)
+            Validators.minLength(2),
+            Validators.maxLength(25)
           ]
         }
       ],
       to_name:'Admin',
-      from_email:['', [Validators.required, Validators.email]],
+      from_email:['', 
+      [
+        Validators.required,
+        Validators.email,
+        Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"),
+        Validators.minLength(12),
+        Validators.maxLength(25)
+      ]
+    ],
       subject:[
         '',
         {
           validators: [
             Validators.required,
-            Validators.minLength(2)
+            Validators.minLength(2),
+            Validators.maxLength(40)
           ]
         }
       ],
@@ -51,28 +66,41 @@ export class ModalFormComponent  implements OnInit {
         {
           validators: [
             Validators.required,
-            Validators.minLength(2)
+            Validators.minLength(2),
+            Validators.maxLength(400)
           ]
         }
       ],
     })
+    this.formGroup.valueChanges.subscribe((val) => {
+      this.currentEmail = val;
+    });
   }
 
-  async send() {
-    emailjs.init('qIVLgZYRhPQybiqfI')
-    let response = await emailjs.send('service_rtyq5ds','template_b6reeee',{
-      from_name:this.formGroup.value.from_name,
-      to_name:this.formGroup.value.to_name,
-      from_email:this.formGroup.value.from_email,
-      subject:this.formGroup.value.subject,
-      message:this.formGroup.value.message,
-    });
-    alert('Message has been sent');
-    this.formGroup.reset();
+  public createEmail() {
+    this._emailHttpService.sendEmail(this.currentEmail).subscribe((response:any) => {
+      this.notificacionesHttpService.showSuccess('correo enviado');
+    })
   }
+
+  public send(): void {
+    if (this.formGroup.valid) {
+      this.createEmail();
+      }
+    }
 
   closeModal() {
     this.close.emit();
+  }
+
+  isControlValid(controlName: string): boolean {
+    const control = this.formGroup.get(controlName);
+    return control?.valid || false;
+  }
+
+  isControlTouched(controlName: string): boolean {
+    const control = this.formGroup.get(controlName);
+    return control?.touched || false;
   }
   
 }

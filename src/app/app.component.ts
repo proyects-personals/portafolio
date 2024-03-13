@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component } from '@angular/core';
+import { NotificationHttpService } from './service/notification/notification-http.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,13 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'portafolio';
+  title = 'portafolio de steveen ordoñez';
+
+  constructor(
+    private notificacionesHttpService: NotificationHttpService,
+  ) {}
+
+  showSuccess() {
+    this.notificacionesHttpService.showSuccess('Operación exitosa');
+  }
 }

@@ -24,7 +24,6 @@ export class PortafolioComponent implements OnInit {
     });
   }
 
-
   private changeTheme(theme: string) {
     this.el.nativeElement.dataset.theme = theme;
   }

@@ -6,61 +6,12 @@
 @tailwind utilities;
 
 
-.shadow-text {
-    text-shadow: 0 0 4px #000000!important;
-}
-
-.l-dark{
-    color:#D2D2D2;
-}
-
-.l-white{
-    color: #0a0a0a;
-}
-
-.l-primary{
-color: #F0F0F0;
-}
-
-.l-secundary{
-    color: darkblue;
-}
-
-.l-brand{
-    color:#F3F3F3 ;
-}
-
-.l-red{
-    color: #ffffff;
-}
-
-
-
-/* thema oscuro */
-
-
-.d-dark{
-    color:#000000;
-}
-
-.d-white{
-    color: #ffffff;
-}
-
-.d-primary{
-color: #050b14;
-}
-
-.d-secundary{
-    color: tomato;
-}
-
-.d-brand{
-    color:#4A4A4A ;
-}
-
-.d-red{
-    color: #560000;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* .mat-mdc-snack-bar-container {
+    --mdc-snackbar-container-color: transparent;
+    --mdc-snackbar-supporting-text-color: rgba(15, 14, 14, 0.87);
+    --mat-snack-bar-button-color: #ff4081;
+    --mdc-snackbar-supporting-text-font: Roboto, sans-serif;
+    --mdc-snackbar-supporting-text-line-height: 20px;
+    --mdc-snackbar-supporting-text-size: 14px;
+    --mdc-snackbar-supporting-text-weight: 400;
+  } */
